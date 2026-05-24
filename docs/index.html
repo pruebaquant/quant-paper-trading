@@ -788,7 +788,7 @@ async function loadFromRepo() {
   t.pos_usd = computePositionUSD(t.vol_annual || 0, openCount);
 }
 if (!t.pbuy && t.p_buy) t.pbuy = t.p_buy;
-if (!t.p_buy && t.pbuy) t.p_buy = t.pbuy;;
+if (!t.p_buy && t.pbuy) t.p_buy = t.pbuy;
           }
           if (!t.exit_expected && t.entry_date) {
             t.exit_expected = addBizDays(t.entry_date, HP_DAYS);
