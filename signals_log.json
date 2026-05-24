@@ -1,0 +1,61 @@
+[
+  {
+    "generated_at": "2026-05-24T21:30:31.668560Z",
+    "date": "2026-05-22",
+    "zscore": 1.655,
+    "system_active": true,
+    "n_signals": 5,
+    "signals": [
+      {
+        "ticker": "INTC",
+        "entry_date": "2026-05-22",
+        "exit_expected": "2026-05-27",
+        "p_buy": 0.7085,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 119.84,
+        "zscore": 1.655
+      },
+      {
+        "ticker": "IEMG",
+        "entry_date": "2026-05-22",
+        "exit_expected": "2026-05-27",
+        "p_buy": 0.6833,
+        "regime": "high_vol",
+        "asset_type": "EM_ETF",
+        "entry_price": 80.57,
+        "zscore": 1.655
+      },
+      {
+        "ticker": "AMD",
+        "entry_date": "2026-05-22",
+        "exit_expected": "2026-05-27",
+        "p_buy": 0.6806,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 467.51,
+        "zscore": 1.655
+      },
+      {
+        "ticker": "INDA",
+        "entry_date": "2026-05-22",
+        "exit_expected": "2026-05-27",
+        "p_buy": 0.6633,
+        "regime": "high_vol",
+        "asset_type": "EM_ETF",
+        "entry_price": 48.39,
+        "zscore": 1.655
+      },
+      {
+        "ticker": "NVDA",
+        "entry_date": "2026-05-22",
+        "exit_expected": "2026-05-27",
+        "p_buy": 0.6621,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 215.33,
+        "zscore": 1.655
+      }
+    ]
+  }
+]
