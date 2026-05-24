@@ -66,5 +66,14 @@
     "n_signals": 0,
     "signals": [],
     "closed_today": 0
+  },
+  {
+    "generated_at": "2026-05-24T22:29:24.789161Z",
+    "date": "2026-05-22",
+    "zscore": 1.655,
+    "system_active": true,
+    "n_signals": 0,
+    "signals": [],
+    "closed_today": 0
   }
 ]
