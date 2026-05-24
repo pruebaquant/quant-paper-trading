@@ -783,9 +783,12 @@ async function loadFromRepo() {
       if (trades.length > 0) {
         // Enriquecer con pos_usd si no tienen
         trades.forEach(t => {
-          if (!t.pos_usd) {
-            const openCount = trades.filter(x=>x.status==='open').length||1;
-            t.pos_usd = computePositionUSD(t.vol_annual||0, openCount);
+        if (!t.pos_usd) {
+  const openCount = trades.filter(x=>x.status==='open').length || 1;
+  t.pos_usd = computePositionUSD(t.vol_annual || 0, openCount);
+}
+if (!t.pbuy && t.p_buy) t.pbuy = t.p_buy;
+if (!t.p_buy && t.pbuy) t.p_buy = t.pbuy;;
           }
           if (!t.exit_expected && t.entry_date) {
             t.exit_expected = addBizDays(t.entry_date, HP_DAYS);
