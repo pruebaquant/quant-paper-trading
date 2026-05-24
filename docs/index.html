@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Trading — HP=5d</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+  :root {
+    --bg:#0a0c0f; --surface:#111318; --border:#1e2229; --border2:#2a2f38;
+    --text:#c8cdd6; --dim:#545c6b; --muted:#363d4a;
+    --green:#22c55e; --gdim:#16532d; --red:#ef4444; --rdim:#5c1616;
+    --amber:#f59e0b; --adim:#5c3a0a; --blue:#3b82f6; --bdim:#1a2a4a;
+    --accent:#6ee7b7; --mono:'IBM Plex Mono',monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:var(--mono);
+         font-size:13px; line-height:1.5; min-height:100vh; }
+  .shell { max-width:960px; margin:0 auto; padding:32px 20px; }
+
+  /* Header */
+  .header { display:flex; justify-content:space-between; align-items:flex-end;
+             border-bottom:1px solid var(--border2); padding-bottom:20px; margin-bottom:28px; }
+  .header h1 { font-size:18px; font-weight:500; letter-spacing:.05em; color:var(--accent); }
+  .header p  { font-size:11px; color:var(--dim); margin-top:4px; letter-spacing:.08em; text-transform:uppercase; }
+  .header-right { text-align:right; font-size:11px; color:var(--dim); }
+  .header-right span { display:block; font-size:15px; color:var(--text); margin-top:2px; }
+
+  /* Status banner */
+  .banner { padding:14px 18px; border-radius:6px; margin-bottom:24px;
+             display:flex; align-items:center; gap:12px; font-size:13px; }
+  .banner.active   { background:var(--gdim); border:1px solid var(--green); }
+  .banner.inactive { background:var(--rdim); border:1px solid var(--red); }
+  .banner.loading  { background:var(--adim); border:1px solid var(--amber); }
+  .banner-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .active   .banner-dot { background:var(--green); box-shadow:0 0 8px var(--green); }
+  .inactive .banner-dot { background:var(--red); }
+  .loading  .banner-dot { background:var(--amber); }
+
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+            background:var(--border); border:1px solid var(--border);
+            border-radius:6px; overflow:hidden; margin-bottom:24px; }
+  .stat { background:var(--surface); padding:14px 16px; }
+  .stat-label { font-size:10px; color:var(--dim); letter-spacing:.1em; text-transform:uppercase; }
+  .stat-value { font-size:22px; font-weight:600; margin-top:4px; letter-spacing:-.02em; }
+  .stat-sub   { font-size:10px; color:var(--muted); margin-top:2px; }
+  .g { color:var(--green); } .r { color:var(--red); }
+  .a { color:var(--amber); } .w { color:#fff; }
+
+  /* Signal cards */
+  .section-title { font-size:11px; color:var(--dim); letter-spacing:.1em;
+                   text-transform:uppercase; margin-bottom:12px; }
+  .signal-card {
+    background:var(--surface); border:1px solid var(--border2);
+    border-radius:6px; padding:16px 18px; margin-bottom:10px;
+    display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center;
+    transition:border-color .15s;
+  }
+  .signal-card:hover { border-color:var(--accent); }
+  .signal-card.registered { border-color:var(--green); opacity:.6; }
+  .ticker { background:var(--bdim); color:var(--blue); padding:4px 10px;
+             border-radius:4px; font-weight:600; font-size:14px; letter-spacing:.05em; }
+  .signal-meta { display:flex; flex-wrap:wrap; gap:12px; }
+  .meta-item { display:flex; flex-direction:column; gap:2px; }
+  .meta-label { font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .meta-value { font-size:13px; font-weight:500; }
+  .signal-actions { display:flex; gap:8px; align-items:center; }
+
+  /* Buttons */
+  .btn { display:inline-flex; align-items:center; gap:5px; padding:8px 14px;
+          border-radius:4px; font-family:var(--mono); font-size:12px; font-weight:500;
+          cursor:pointer; border:none; transition:all .15s; letter-spacing:.03em; }
+  .btn-primary { background:var(--accent); color:#000; }
+  .btn-primary:hover { background:#a7f3d0; }
+  .btn-ghost { background:transparent; color:var(--dim); border:1px solid var(--border2); }
+  .btn-ghost:hover { border-color:var(--dim); color:var(--text); }
+  .btn-sm { padding:5px 10px; font-size:11px; }
+  .btn-danger { background:transparent; color:var(--red); border:1px solid var(--rdim);
+                padding:5px 10px; font-size:11px; }
+
+  /* Trade log */
+  .panel { background:var(--surface); border:1px solid var(--border);
+            border-radius:6px; overflow:hidden; margin-bottom:20px; }
+  .panel-header { display:flex; justify-content:space-between; align-items:center;
+                   padding:12px 16px; border-bottom:1px solid var(--border);
+                   background:rgba(255,255,255,.02); }
+  .panel-title { font-size:11px; color:var(--dim); letter-spacing:.1em; text-transform:uppercase; }
+
+  /* Tabs */
+  .tabs { display:flex; border-bottom:1px solid var(--border); }
+  .tab { padding:10px 16px; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+          color:var(--dim); cursor:pointer; border-bottom:2px solid transparent;
+          margin-bottom:-1px; transition:all .15s; }
+  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .tab-content { display:none; padding:16px; }
+  .tab-content.active { display:block; }
+
+  /* Table */
+  table { width:100%; border-collapse:collapse; }
+  th { font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase;
+        padding:8px 10px; text-align:left; border-bottom:1px solid var(--border); font-weight:400; }
+  td { padding:9px 10px; border-bottom:1px solid var(--border); font-size:12px; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:rgba(255,255,255,.02); }
+  .badge-open { background:var(--adim); color:var(--amber); padding:2px 7px;
+                 border-radius:3px; font-size:11px; }
+  .badge-win  { background:var(--gdim); color:var(--green); padding:2px 7px;
+                 border-radius:3px; font-size:11px; }
+  .badge-loss { background:var(--rdim); color:var(--red); padding:2px 7px;
+                 border-radius:3px; font-size:11px; }
+
+  /* Modal */
+  .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.75);
+              z-index:100; align-items:center; justify-content:center; }
+  .overlay.on { display:flex; }
+  .modal { background:var(--surface); border:1px solid var(--border2); border-radius:8px;
+            padding:24px; width:360px; max-width:90vw; }
+  .modal h3 { font-size:14px; font-weight:500; padding-bottom:12px;
+               border-bottom:1px solid var(--border); margin-bottom:16px; }
+  .field { display:flex; flex-direction:column; gap:5px; margin-bottom:12px; }
+  .field label { font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.08em; }
+  .field input, .field select, .field textarea {
+    background:var(--bg); border:1px solid var(--border2); border-radius:4px;
+    color:var(--text); font-family:var(--mono); font-size:13px; padding:8px 10px;
+    outline:none; width:100%; transition:border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--accent); }
+  .field textarea { resize:vertical; min-height:60px; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .btn-row { display:flex; gap:8px; margin-top:4px; }
+
+  /* PnL chart */
+  .chart-wrap { height:90px; position:relative; }
+  canvas { width:100%; height:100%; }
+
+  /* Checklist */
+  .checks { display:flex; flex-direction:column; gap:8px; }
+  .check { display:flex; align-items:center; gap:10px; padding:8px 10px;
+            background:var(--bg); border:1px solid var(--border);
+            border-radius:4px; cursor:pointer; transition:border-color .15s; }
+  .check:hover { border-color:var(--border2); }
+  .check.done { border-color:var(--gdim); }
+  .check.done .clabel { color:var(--muted); text-decoration:line-through; }
+  .cdot { width:16px; height:16px; border-radius:50%; border:1.5px solid var(--border2);
+           flex-shrink:0; display:flex; align-items:center; justify-content:center;
+           font-size:9px; color:transparent; transition:all .15s; }
+  .check.done .cdot { background:var(--gdim); border-color:var(--green); color:var(--green); }
+  .clabel { font-size:12px; flex:1; }
+
+  .empty { text-align:center; padding:24px; color:var(--muted); font-size:12px; }
+
+  /* Zscore widget */
+  .zbar { display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .ztrack { flex:1; height:6px; background:var(--border2); border-radius:3px; overflow:hidden; }
+  .zfill { height:100%; border-radius:3px; transition:width .3s; }
+  .zval { font-size:14px; font-weight:600; min-width:52px; text-align:right; }
+
+  @media(max-width:600px) {
+    .stats { grid-template-columns:1fr 1fr; }
+    .signal-card { grid-template-columns:auto 1fr; }
+    .signal-actions { grid-column:1/-1; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>▸ PAPER TRADING</h1>
+      <p>HP=5d · Universe Filter v2 · zscore &gt; 0</p>
+    </div>
+    <div class="header-right">
+      ÚLTIMA ACTUALIZACIÓN
+      <span id="hdr-date">—</span>
+    </div>
+  </div>
+
+  <!-- Status banner -->
+  <div class="banner loading" id="banner">
+    <div class="banner-dot"></div>
+    <span id="banner-text">Cargando señales...</span>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-label">Zscore hoy</div>
+      <div class="stat-value a" id="s-zscore">—</div>
+      <div class="stat-sub" id="s-zstatus">cargando...</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value w" id="s-wr">—</div>
+      <div class="stat-sub" id="s-wrsub">0G / 0P</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Avg Ret/Trade</div>
+      <div class="stat-value w" id="s-avg">—</div>
+      <div class="stat-sub">neto 5bps</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">PnL acum.</div>
+      <div class="stat-value w" id="s-pnl">0.00%</div>
+      <div class="stat-sub" id="s-dd">MaxDD: —</div>
+    </div>
+  </div>
+
+  <!-- Signals del día -->
+  <div class="section-title" id="signals-title">Señales del día</div>
+  <div id="signals-container">
+    <div class="empty">Cargando...</div>
+  </div>
+
+  <!-- Checklist -->
+  <div class="panel" style="margin-top:24px;margin-bottom:20px">
+    <div class="panel-header">
+      <span class="panel-title">Checklist diario</span>
+      <button class="btn btn-ghost btn-sm" onclick="resetChecks()">Reset</button>
+    </div>
+    <div style="padding:16px">
+      <!-- Zscore widget -->
+      <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span style="font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em">Zscore dispersión</span>
+          <span id="zs-badge" style="font-size:10px;padding:2px 8px;border-radius:3px">—</span>
+        </div>
+        <div class="zbar">
+          <div class="ztrack"><div class="zfill" id="zfill" style="width:50%;background:var(--amber)"></div></div>
+          <span class="zval" id="zdisp" style="color:var(--amber)">?</span>
+        </div>
+      </div>
+      <div class="checks" id="checks">
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Zscore &gt; 0 — sistema activo</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Earnings filter revisado (ningún ticker en blackout)</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Régimen = high_vol confirmado</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Universo limpio (sin FX / FixedIncome / Commodity)</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Máximo 5 posiciones abiertas (top_n=5)</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Trades vencidos cerrados (HP=5d)</span></div>
+        <div class="check" onclick="tog(this)"><div class="cdot">✓</div><span class="clabel">Resultados registrados en el log</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trade log -->
+  <div class="panel">
+    <div style="display:flex;align-items:center;border-bottom:1px solid var(--border)">
+      <div class="tabs" style="border-bottom:none;flex:1">
+        <div class="tab active" onclick="swTab('open')">Abiertos</div>
+        <div class="tab" onclick="swTab('closed')">Cerrados</div>
+      </div>
+      <div style="padding:0 14px">
+        <button class="btn btn-ghost btn-sm" onclick="exportCSV()">↓ CSV</button>
+      </div>
+    </div>
+    <div class="tab-content active" id="tab-open">
+      <div id="open-body"><div class="empty">Sin trades abiertos</div></div>
+    </div>
+    <div class="tab-content" id="tab-closed">
+      <div id="closed-body"><div class="empty">Sin trades cerrados</div></div>
+    </div>
+
+    <!-- PnL chart -->
+    <div style="padding:0 16px 16px">
+      <div style="font-size:10px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em">Curva P&L</div>
+      <div class="chart-wrap"><canvas id="pnlc"></canvas></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Close modal -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <h3>Cerrar trade: <span id="m-ticker"></span></h3>
+    <div class="row2">
+      <div class="field">
+        <label>Fecha salida</label>
+        <input type="date" id="m-date">
+      </div>
+      <div class="field">
+        <label>Retorno bruto (%)</label>
+        <input type="number" id="m-ret" placeholder="+2.50" step="0.01">
+      </div>
+    </div>
+    <div class="field">
+      <label>Nota</label>
+      <textarea id="m-note" placeholder="Contexto del cierre..."></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="doClose()">Confirmar</button>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TC = 0.05;
+let closingId = null;
+
+// ── State (localStorage) ───────────────────────────────────────────────
+let state = { trades:[], checks:[false,false,false,false,false,false,false] };
+
+function save() { localStorage.setItem('pt2', JSON.stringify(state)); }
+function load() {
+  const r = localStorage.getItem('pt2');
+  if (r) try { state = {...state,...JSON.parse(r)}; } catch(e) {}
+}
+load();
+
+// Restore checks
+state.checks.forEach((v,i) => {
+  const els = document.querySelectorAll('.check');
+  if (els[i] && v) els[i].classList.add('done');
+});
+
+// ── Load signals from repo ─────────────────────────────────────────────
+async function loadSignals() {
+  try {
+    const r = await fetch('signals_hoy.json?t=' + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    renderSignals(d);
+    updateZwidget(d.zscore);
+    document.getElementById('hdr-date').textContent =
+      d.generated_at ? d.generated_at.slice(0,16).replace('T',' ') + ' UTC' : '—';
+  } catch(e) {
+    setBanner('loading', 'No se pudieron cargar las señales — ' + e.message);
+    document.getElementById('signals-container').innerHTML =
+      '<div class="empty">Error cargando signals_hoy.json<br><small style="color:var(--muted)">Verificar que GitHub Actions corrió hoy</small></div>';
+  }
+}
+
+function setBanner(type, text) {
+  const b = document.getElementById('banner');
+  b.className = 'banner ' + type;
+  document.getElementById('banner-text').textContent = text;
+}
+
+function renderSignals(d) {
+  const z = d.zscore ?? 0;
+  const zStr = (z >= 0 ? '+' : '') + z.toFixed(3);
+
+  // Stats zscore
+  const zEl = document.getElementById('s-zscore');
+  zEl.textContent = zStr;
+  zEl.className = 'stat-value ' + (z > 0 ? 'g' : 'r');
+  document.getElementById('s-zstatus').textContent = z > 0 ? 'Sistema activo' : 'Sistema inactivo';
+
+  if (!d.system_active || !d.signals?.length) {
+    setBanner('inactive',
+      `Sistema INACTIVO — zscore=${zStr}. Sin señales hoy.`);
+    document.getElementById('signals-container').innerHTML =
+      '<div class="empty" style="padding:20px">Sistema inactivo hoy.<br>' +
+      '<small style="color:var(--muted)">Zscore ≤ 0: sin dispersión cross-seccional suficiente.</small></div>';
+    return;
+  }
+
+  setBanner('active', `Sistema ACTIVO — zscore=${zStr} · ${d.n_signals} señal${d.n_signals>1?'es':''} generada${d.n_signals>1?'s':''}  ·  ${d.date}`);
+
+  const html = d.signals.map((s, i) => `
+    <div class="signal-card" id="sc${i}">
+      <span class="ticker">${s.ticker}</span>
+      <div class="signal-meta">
+        <div class="meta-item">
+          <span class="meta-label">p_buy</span>
+          <span class="meta-value" style="color:var(--blue)">${s.p_buy.toFixed(3)}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tipo</span>
+          <span class="meta-value" style="color:var(--dim);font-size:11px">${s.asset_type}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Régimen</span>
+          <span class="meta-value" style="font-size:11px">${s.regime}</span>
+        </div>
+        ${s.entry_price ? `
+        <div class="meta-item">
+          <span class="meta-label">Precio aprox.</span>
+          <span class="meta-value">$${s.entry_price}</span>
+        </div>` : ''}
+        <div class="meta-item">
+          <span class="meta-label">Salida esperada</span>
+          <span class="meta-value" style="color:var(--dim)">${s.exit_expected}</span>
+        </div>
+      </div>
+      <div class="signal-actions">
+        <button class="btn btn-primary btn-sm" id="btn${i}"
+          onclick="regSignal(${i}, ${JSON.stringify(s).replace(/"/g,'&quot;')})">
+          + Registrar
+        </button>
+        <span id="done${i}" style="display:none;color:var(--green);font-size:11px">✓</span>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('signals-container').innerHTML = html || '<div class="empty">Sin señales hoy</div>';
+  document.getElementById('signals-title').textContent = `Señales del día — ${d.date}`;
+}
+
+function regSignal(i, s) {
+  const trade = {
+    id: Date.now() + i,
+    ticker:       s.ticker,
+    entryDate:    s.entry_date,
+    exitExpected: s.exit_expected,
+    pbuy:         s.p_buy,
+    entryPrice:   s.entry_price,
+    regime:       s.regime,
+    assetType:    s.asset_type,
+    status:       'open',
+    exitDate:null, ret:null, retNet:null,
+  };
+  state.trades.unshift(trade);
+  save(); render();
+  document.getElementById('btn'+i).style.display = 'none';
+  document.getElementById('done'+i).style.display = 'inline';
+}
+
+// ── Zscore widget ─────────────────────────────────────────────────────
+function updateZwidget(z) {
+  if (z == null || isNaN(z)) return;
+  const pct = Math.min(100, Math.max(0, (z+2)/4*100));
+  const col  = z > 0 ? 'var(--green)' : z > -0.5 ? 'var(--amber)' : 'var(--red)';
+  const lbl  = z > 0 ? 'ACTIVO' : z > -0.5 ? 'BORDERLINE' : 'INACTIVO';
+  const bgc  = z > 0 ? 'var(--gdim)' : z > -0.5 ? 'var(--adim)' : 'var(--rdim)';
+  document.getElementById('zfill').style.cssText = `width:${pct}%;background:${col}`;
+  document.getElementById('zdisp').textContent = (z>=0?'+':'') + z.toFixed(2);
+  document.getElementById('zdisp').style.color = col;
+  const b = document.getElementById('zs-badge');
+  b.textContent = lbl; b.style.background = bgc; b.style.color = col;
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────
+function computeStats() {
+  const closed = state.trades.filter(t => t.status !== 'open');
+  const open   = state.trades.filter(t => t.status === 'open');
+  const wins   = closed.filter(t => t.status === 'win');
+  const wr     = closed.length ? wins.length/closed.length*100 : null;
+  const avg    = closed.length ? closed.reduce((s,t)=>s+t.retNet,0)/closed.length : null;
+  const pnl    = closed.reduce((s,t)=>s+t.retNet,0);
+  let peak=0, dd=0, cum=0;
+  [...closed].reverse().forEach(t=>{cum+=t.retNet;if(cum>peak)peak=cum;const d=peak-cum;if(d>dd)dd=d;});
+  return {closed,open,wins,wr,avg,pnl,dd};
+}
+
+function render() {
+  const s = computeStats();
+  const fmtR = v => (v>=0?'+':'')+v.toFixed(3)+'%';
+
+  if (s.wr !== null) {
+    const e = document.getElementById('s-wr');
+    e.textContent = s.wr.toFixed(1)+'%';
+    e.className = 'stat-value ' + (s.wr>=50?'g':'r');
+  }
+  document.getElementById('s-wrsub').textContent = `${s.wins.length}G / ${s.closed.length-s.wins.length}P`;
+
+  if (s.avg !== null) {
+    const e = document.getElementById('s-avg');
+    e.textContent = fmtR(s.avg);
+    e.className = 'stat-value ' + (s.avg>=0?'g':'r');
+  }
+  const pe = document.getElementById('s-pnl');
+  pe.textContent = fmtR(s.pnl);
+  pe.className = 'stat-value ' + (s.pnl>0?'g':s.pnl<0?'r':'w');
+  document.getElementById('s-dd').textContent = 'MaxDD: -' + s.dd.toFixed(2)+'%';
+
+  renderOpen(s.open);
+  renderClosed(s.closed);
+  renderChart(s.closed);
+}
+
+function renderOpen(open) {
+  const el = document.getElementById('open-body');
+  if (!open.length) { el.innerHTML='<div class="empty">Sin trades abiertos</div>'; return; }
+  el.innerHTML = `<table><thead><tr>
+    <th>Ticker</th><th>Entrada</th><th>Salida esp.</th><th>Días</th><th>p_buy</th><th>Estado</th><th></th>
+  </tr></thead><tbody>` +
+  open.map(t => {
+    const days = Math.floor((Date.now()-new Date(t.entryDate))/86400000);
+    const ov   = days > 5 ? `<span style="color:var(--red)">${days}d ⚠</span>` : days+'d';
+    return `<tr>
+      <td><span class="ticker" style="font-size:12px">${t.ticker}</span></td>
+      <td>${t.entryDate}</td><td>${t.exitExpected||'—'}</td>
+      <td>${ov}</td><td>${t.pbuy?t.pbuy.toFixed(3):'—'}</td>
+      <td><span class="badge-open">ABIERTO</span></td>
+      <td><div style="display:flex;gap:6px">
+        <button class="btn btn-sm" style="background:var(--gdim);color:var(--green)"
+          onclick="openModal(${t.id})">Cerrar</button>
+        <button class="btn btn-danger" onclick="del(${t.id})">✕</button>
+      </div></td>
+    </tr>`;
+  }).join('') + '</tbody></table>';
+}
+
+function renderClosed(closed) {
+  const el = document.getElementById('closed-body');
+  if (!closed.length) { el.innerHTML='<div class="empty">Sin trades cerrados</div>'; return; }
+  el.innerHTML = `<table><thead><tr>
+    <th>Ticker</th><th>Entrada</th><th>Salida</th><th>Días</th><th>Retorno neto</th><th>Resultado</th>
+  </tr></thead><tbody>` +
+  closed.map(t => {
+    const days = t.exitDate ? Math.floor((new Date(t.exitDate)-new Date(t.entryDate))/86400000) : '—';
+    const rc   = t.retNet >= 0 ? 'g' : 'r';
+    const badge= t.status==='win'
+      ? '<span class="badge-win">WIN</span>'
+      : '<span class="badge-loss">LOSS</span>';
+    return `<tr>
+      <td><span class="ticker" style="font-size:12px">${t.ticker}</span></td>
+      <td>${t.entryDate}</td><td>${t.exitDate||'—'}</td><td>${days}d</td>
+      <td class="${rc}">${(t.retNet>=0?'+':'')+t.retNet.toFixed(3)}%</td>
+      <td>${badge}</td>
+    </tr>`;
+  }).join('') + '</tbody></table>';
+}
+
+function renderChart(closed) {
+  const canvas = document.getElementById('pnlc');
+  if (!closed.length) return;
+  canvas.width  = canvas.offsetWidth  * devicePixelRatio;
+  canvas.height = canvas.offsetHeight * devicePixelRatio;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  const W = canvas.offsetWidth, H = canvas.offsetHeight;
+
+  const series = [0]; let cum = 0;
+  [...closed].reverse().forEach(t => { cum += t.retNet; series.push(cum); });
+
+  const mn = Math.min(...series), mx = Math.max(...series), rng = mx-mn||1;
+  const pad = 6;
+  const toX = i => pad + i/(series.length-1)*(W-2*pad);
+  const toY = v => pad + (1-(v-mn)/rng)*(H-2*pad);
+
+  // Zero line
+  ctx.beginPath(); ctx.strokeStyle='rgba(255,255,255,.06)';
+  ctx.lineWidth=1; ctx.setLineDash([3,4]);
+  ctx.moveTo(pad,toY(0)); ctx.lineTo(W-pad,toY(0)); ctx.stroke();
+  ctx.setLineDash([]);
+
+  const color = cum>=0 ? '#22c55e' : '#ef4444';
+  const grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, cum>=0?'rgba(34,197,94,.3)':'rgba(239,68,68,.3)');
+  grad.addColorStop(1,'rgba(0,0,0,0)');
+
+  ctx.beginPath();
+  ctx.moveTo(toX(0),toY(series[0]));
+  series.forEach((v,i)=>{ if(i>0) ctx.lineTo(toX(i),toY(v)); });
+  ctx.lineTo(toX(series.length-1),H); ctx.lineTo(toX(0),H);
+  ctx.closePath(); ctx.fillStyle=grad; ctx.fill();
+
+  ctx.beginPath(); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.lineJoin='round';
+  ctx.moveTo(toX(0),toY(series[0]));
+  series.forEach((v,i)=>{ if(i>0) ctx.lineTo(toX(i),toY(v)); });
+  ctx.stroke();
+
+  ctx.beginPath(); ctx.arc(toX(series.length-1),toY(cum),4,0,Math.PI*2);
+  ctx.fillStyle=color; ctx.fill();
+}
+
+// ── Modal ─────────────────────────────────────────────────────────────
+function openModal(id) {
+  closingId = id;
+  const t = state.trades.find(x=>x.id===id);
+  document.getElementById('m-ticker').textContent = t.ticker;
+  document.getElementById('m-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('m-ret').value = '';
+  document.getElementById('m-note').value = '';
+  document.getElementById('modal').classList.add('on');
+}
+function closeModal() { document.getElementById('modal').classList.remove('on'); }
+function doClose() {
+  const dt  = document.getElementById('m-date').value;
+  const ret = parseFloat(document.getElementById('m-ret').value);
+  if (!dt || isNaN(ret)) { alert('Fecha y retorno obligatorios.'); return; }
+  const t = state.trades.find(x=>x.id===closingId);
+  t.status   = ret > 0 ? 'win' : 'loss';
+  t.exitDate = dt; t.ret = ret; t.retNet = ret - TC;
+  save(); closeModal(); render();
+}
+function del(id) {
+  if (!confirm('¿Eliminar?')) return;
+  state.trades = state.trades.filter(t=>t.id!==id);
+  save(); render();
+}
+
+// ── Checklist ─────────────────────────────────────────────────────────
+function tog(el) {
+  el.classList.toggle('done');
+  state.checks = Array.from(document.querySelectorAll('.check')).map(e=>e.classList.contains('done'));
+  save();
+}
+function resetChecks() {
+  document.querySelectorAll('.check').forEach(e=>e.classList.remove('done'));
+  state.checks = state.checks.map(()=>false);
+  save();
+}
+
+// ── Export ────────────────────────────────────────────────────────────
+function exportCSV() {
+  const closed = state.trades.filter(t=>t.status!=='open');
+  const rows = [
+    ['ticker','entry_date','exit_date','days','p_buy','ret_bruto','ret_neto','resultado'].join(','),
+    ...closed.map(t=>{
+      const d = t.exitDate ? Math.floor((new Date(t.exitDate)-new Date(t.entryDate))/86400000) : '';
+      return [t.ticker,t.entryDate,t.exitDate||'',d,t.pbuy||'',t.ret,t.retNet,t.status].join(',');
+    })
+  ].join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([rows],{type:'text/csv'}));
+  a.download = 'paper_trading.csv'; a.click();
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────
+function swTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i)=>
+    t.classList.toggle('active',['open','closed'][i]===name));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+// Modal overlay click
+document.getElementById('modal').addEventListener('click', e=>{
+  if (e.target===document.getElementById('modal')) closeModal();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────
+loadSignals();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+name: Daily Signals
+
+on:
+  schedule:
+    - cron: '0 21 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  generate-signals:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install yfinance lxml pandas numpy xgboost scikit-learn
+
+      - name: Generate signals
+        run: python daily_signals.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+
+      - name: Commit results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add signals_hoy.json signals_log.json docs/signals_hoy.json
+          git diff --staged --quiet || git commit -m "signals $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
