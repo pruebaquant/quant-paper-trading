@@ -1,0 +1,7 @@
+[
+  {"id":1,"ticker":"NVDA","entry_date":"2026-05-22","exit_expected":"2026-05-27","p_buy":0.662,"pbuy":0.662,"entry_price":215.33,"status":"open","exit_date":null,"exit_price":null,"ret":null,"ret_net":null},
+  {"id":2,"ticker":"INDA","entry_date":"2026-05-22","exit_expected":"2026-05-27","p_buy":0.663,"pbuy":0.663,"entry_price":48.23,"status":"open","exit_date":null,"exit_price":null,"ret":null,"ret_net":null},
+  {"id":3,"ticker":"AMD","entry_date":"2026-05-22","exit_expected":"2026-05-27","p_buy":0.681,"pbuy":0.681,"entry_price":467.51,"status":"open","exit_date":null,"exit_price":null,"ret":null,"ret_net":null},
+  {"id":4,"ticker":"IEMG","entry_date":"2026-05-22","exit_expected":"2026-05-27","p_buy":0.683,"pbuy":0.683,"entry_price":80.69,"status":"open","exit_date":null,"exit_price":null,"ret":null,"ret_net":null},
+  {"id":5,"ticker":"INTC","entry_date":"2026-05-22","exit_expected":"2026-05-27","p_buy":0.662,"pbuy":0.662,"entry_price":119.84,"status":"open","exit_date":null,"exit_price":null,"ret":null,"ret_net":null}
+]
