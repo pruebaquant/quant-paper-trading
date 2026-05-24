@@ -19,20 +19,24 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-        
 
       - name: Install dependencies
         run: pip install yfinance lxml pandas numpy xgboost scikit-learn
 
-      - name: Generate signals
+      - name: Generate signals, close trades, send email
         run: python daily_signals.py
         env:
           PYTHONPATH: ${{ github.workspace }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+          NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
 
       - name: Commit results
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add signals_hoy.json signals_log.json docs/signals_hoy.json
-          git diff --staged --quiet || git commit -m "signals $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git add signals_hoy.json signals_log.json trades.json \
+                  docs/signals_hoy.json docs/trades.json
+          git diff --staged --quiet || \
+            git commit -m "auto: signals $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
