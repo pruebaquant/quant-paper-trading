@@ -1,0 +1,21 @@
+[
+  "ivol_12m",
+  "vol_of_vol",
+  "rolling_beta",
+  "mom_12_1",
+  "amihud",
+  "high_52w",
+  "mom_12_1_zscore",
+  "tsmom_12",
+  "ret_1m",
+  "log_volume",
+  "ret_5d",
+  "ret_10d",
+  "vol_5d",
+  "vol_ratio",
+  "ivol_12m_cs",
+  "mom_12_1_cs",
+  "rolling_beta_cs",
+  "vol_of_vol_cs",
+  "ret_1m_cs"
+]

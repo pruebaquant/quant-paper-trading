@@ -1,0 +1,9 @@
+{
+  "exported_at": "2026-05-24T18:16:14.625338",
+  "trained_on": "2026-05-23T19:42:19.310003",
+  "n_features": 19,
+  "buy_model": "buy_model.ubj",
+  "sell_model": "sell_model.ubj",
+  "format": "xgboost_native_ubj",
+  "note": "Portable format \u2014 no pipeline dependencies required"
+}
