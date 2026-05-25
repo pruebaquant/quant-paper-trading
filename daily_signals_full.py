@@ -553,6 +553,51 @@ def build_email(date, zscore, closed_today, new_signals, all_trades, system_acti
 </html>"""
 
 # ── Main ──────────────────────────────────────────────────────────────────
+# ── Dynamic volatility scaling (Moreira & Muir 2017) ─────────────────────
+def compute_vol_scaled_position(tkr: str, df_raw: pd.DataFrame,
+                                 n_open_slots: int,
+                                 target_vol: float = 0.10,
+                                 lookback: int = 21) -> dict:
+    """
+    Calcula posicion USD escalada por volatilidad realizada de 21 dias.
+    Metodo: Moreira & Muir (2017) y Barroso & Santa-Clara (2015)
+      pos_usd = base_usd x (target_vol / vol_realizada_21d)
+    """
+    base_usd = CAPITAL / max(1, n_open_slots)
+    try:
+        t = df_raw.xs(tkr, level='ticker').sort_index()
+        if len(t) < lookback + 5:
+            raise ValueError("Datos insuficientes")
+        o  = t['open'].clip(lower=1e-9)
+        h, l, c = t['high'], t['low'], t['close']
+        u   = np.log(h / o)
+        d   = np.log(l / o)
+        c2  = np.log(c / o)
+        gk  = 0.5*(u-d)**2 - (2*np.log(2)-1)*c2**2
+        vol_daily = float(gk.iloc[-lookback:].mean()**0.5)
+        vol_ann   = vol_daily * np.sqrt(252)
+        if vol_ann <= 0 or not np.isfinite(vol_ann):
+            raise ValueError(f"Vol invalida: {vol_ann}")
+        scalar  = target_vol / vol_ann
+        pos_usd = max(MIN_POS, min(base_usd * scalar, CAPITAL * 0.20))
+        return {
+            'pos_usd':      round(pos_usd, 2),
+            'vol_realized': round(vol_ann * 100, 2),
+            'vol_scalar':   round(scalar, 4),
+            'vol_method':   'GK_21d_Moreira_Muir_2017',
+            'base_usd':     round(base_usd, 2),
+        }
+    except Exception:
+        pos_usd = max(MIN_POS, min(base_usd, CAPITAL * 0.20))
+        return {
+            'pos_usd':      round(pos_usd, 2),
+            'vol_realized': None,
+            'vol_scalar':   1.0,
+            'vol_method':   'equal_weight_fallback',
+            'base_usd':     round(base_usd, 2),
+        }
+
+
 def main():
     now   = datetime.utcnow()
     today = now.strftime('%Y-%m-%d')
@@ -691,7 +736,24 @@ def main():
             except Exception:
                 price = None
 
-            entry_real = addBizDay(entry_date)
+            entry_real   = addBizDay(entry_date)
+            n_open_after = len([t for t in trades if t['status']=='open']) + len(new_signals) + 1
+
+            # Position sizing: equal weight (vol scaling dinámico testado
+            # en test_vol_scaling.py — empeora Sharpe -4.7% en HP=5d)
+            # La función compute_vol_scaled_position() queda disponible
+            # pero el default es equal weight.
+            n_slots  = max(1, n_open_after)
+            base_usd = CAPITAL / n_slots
+            pos_usd  = max(MIN_POS, min(base_usd, CAPITAL * 0.20))
+            vol_info = {
+                'pos_usd':      round(pos_usd, 2),
+                'vol_realized': None,
+                'vol_scalar':   1.0,
+                'vol_method':   'equal_weight',
+                'base_usd':     round(base_usd, 2),
+            }
+
             # Top features para audit trail
             audit_feats = {}
             for feat_k in ['vol_ratio','mom_12_1_cs','ret_1m','vol_5d','ivol_12m']:
@@ -711,6 +773,12 @@ def main():
                 'asset_type':    _cls(tkr),
                 'entry_price':   round(price, 2) if price else None,
                 'zscore':        round(z_today, 3),
+                # Vol scaling (Moreira & Muir 2017)
+                'pos_usd':       vol_info['pos_usd'],
+                'vol_realized':  vol_info['vol_realized'],
+                'vol_scalar':    vol_info['vol_scalar'],
+                'vol_method':    vol_info['vol_method'],
+                'vol_annual':    vol_info['vol_realized'],
                 'status':        'open',
                 'exit_date':     None,
                 'exit_price':    None,
@@ -722,6 +790,7 @@ def main():
                 'id':            int(datetime.utcnow().timestamp() * 1000) + len(new_signals),
                 'audit': {
                     'features':     audit_feats,
+                    'vol_info':     vol_info,
                     'dq_issues':    len(dq_issues),
                     'generated_at': now.isoformat() + 'Z',
                 }
