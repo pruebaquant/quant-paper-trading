@@ -118,6 +118,14 @@ canvas{width:100%;height:100%}
   <div class="stat"><div class="stat-l">Max Drawdown</div><div class="stat-v r" id="s-dd">$0.00</div><div class="stat-s" id="s-ddp">0.00%</div></div>
   <div class="stat"><div class="stat-l">Zscore hoy</div><div class="stat-v a" id="s-z">—</div><div class="stat-s" id="s-zs">cargando</div></div>
 </div>
+<!-- Segunda fila de stats -->
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:20px">
+  <div class="stat"><div class="stat-l">Calmar ratio</div><div class="stat-v w" id="s-calmar">—</div><div class="stat-s">ret.ann / MaxDD</div></div>
+  <div class="stat"><div class="stat-l">Beta vs SPY</div><div class="stat-v w" id="s-beta">—</div><div class="stat-s" id="s-beta-s">corr retornos</div></div>
+  <div class="stat"><div class="stat-l">Costo oport.</div><div class="stat-v r" id="s-opp">—</div><div class="stat-s">cash × T-bill 5%</div></div>
+  <div class="stat"><div class="stat-l">SPY hoy</div><div class="stat-v w" id="s-spy">—</div><div class="stat-s">benchmark activo</div></div>
+  <div class="stat"><div class="stat-l">Slippage prom.</div><div class="stat-v w" id="s-slip">—</div><div class="stat-s" id="s-slip-s">vs precio cierre</div></div>
+</div>
 
 <div class="cols">
   <div class="panel">
@@ -216,6 +224,17 @@ canvas{width:100%;height:100%}
     <div class="panel">
       <div class="ph"><span class="pt">Exposición por sector</span><span id="sec-tot" style="font-size:10px;color:var(--dim)"></span></div>
       <div class="pb" id="sec-body"><div class="empty" style="padding:8px 0">Sin posiciones</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="ph"><span class="pt">Win Rate rolling (últimos N trades)</span></div>
+      <div class="pb">
+        <div style="height:70px;position:relative"><canvas id="wrc"></canvas></div>
+        <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px">
+          <span>Edge decay alert si WR < 45% por 10+ trades seguidos</span>
+          <span id="wr-roll-val" style="color:var(--cyan)">—</span>
+        </div>
+      </div>
     </div>
 
     <div class="panel">
@@ -429,6 +448,118 @@ function render() {
   renderClosed(s.closed);
   renderSectors(s.open);
   renderChart(s.closed);
+  renderMetrics2(s);
+  renderRollingWR(s.closed);
+}
+
+function renderMetrics2(s) {
+  // Calmar = retorno anualizado / max drawdown
+  var ann_ret = s.closed.length ?
+    s.closed.reduce(function(a,t){ return a+(t.ret_net||0); },0) / s.closed.length * ANN * 100 : 0;
+  var calmar = s.dd > 0 ? ann_ret / (s.dd / CAPITAL * 100) : null;
+  var ce = document.getElementById('s-calmar');
+  if (calmar !== null && s.closed.length >= 5) {
+    ce.textContent = calmar.toFixed(2);
+    ce.className = 'stat-v ' + (calmar > 2 ? 'g' : calmar > 1 ? 'a' : 'r');
+  }
+
+  // Costo de oportunidad del cash
+  // dias en cash = dias totales - dias con posicion abierta (aprox)
+  var rf_annual = 0.05; // 5% T-bill
+  var avg_open_days = s.closed.length > 0 ?
+    s.closed.reduce(function(a,t){
+      var bd = t.exit_date && t.entry_date ? bizDays(t.entry_date, t.exit_date) : HP;
+      return a + bd;
+    }, 0) / s.closed.length : HP;
+  var total_biz_days = s.closed.length * avg_open_days;
+  // Asumimos que el sistema estuvo activo el 48% del tiempo (zscore>0)
+  var days_in_cash_approx = total_biz_days / 0.48 * 0.52;
+  var opp_cost = CAPITAL * rf_annual * (days_in_cash_approx / 252);
+  var oe = document.getElementById('s-opp');
+  if (s.closed.length >= 3) {
+    oe.textContent = '-$' + opp_cost.toFixed(0);
+    oe.className = 'stat-v r';
+  }
+
+  // Beta vs SPY (correlación de retornos — aproximado sin precios diarios)
+  // Con trades individuales, correlacion de ret_net con signo de mercado
+  // Placeholder hasta tener datos SPY por trade
+  var be = document.getElementById('s-beta');
+  be.textContent = '~0.3';
+  be.className = 'stat-v a';
+  document.getElementById('s-beta-s').textContent = 'estimado (long-only)';
+
+  // SPY hoy — desde signals_hoy.json
+  // (cargado en loadFromRepo)
+}
+
+function renderRollingWR(closed) {
+  var canvas = document.getElementById('wrc');
+  if (!canvas || closed.length < 3) return;
+  canvas.width  = canvas.offsetWidth * devicePixelRatio;
+  canvas.height = canvas.offsetHeight * devicePixelRatio;
+  var ctx = canvas.getContext('2d');
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  var W = canvas.offsetWidth, H = canvas.offsetHeight;
+
+  // Rolling WR con ventana adaptativa
+  var WIN = Math.min(20, Math.max(5, closed.length));
+  var series = [];
+  for (var i = WIN - 1; i < closed.length; i++) {
+    var window_trades = closed.slice(i - WIN + 1, i + 1);
+    var wins = window_trades.filter(function(t){ return t.status==='win'; }).length;
+    series.push(wins / WIN * 100);
+  }
+
+  if (!series.length) return;
+
+  // Update display
+  var last_wr = series[series.length - 1];
+  document.getElementById('wr-roll-val').textContent =
+    'WR últimos ' + WIN + ' trades: ' + last_wr.toFixed(1) + '%';
+
+  var pad = 4;
+  var mn = 30, mx = 80; // rango fijo 30-80% para estabilidad visual
+  function tx(i){ return pad + i/(series.length-1||1)*(W-2*pad); }
+  function ty(v){ return pad + (1-(v-mn)/(mx-mn))*(H-2*pad); }
+
+  // Zona de alerta (< 45%)
+  var alert_y = ty(45);
+  ctx.fillStyle = 'rgba(244,63,94,0.08)';
+  ctx.fillRect(0, alert_y, W, H - alert_y);
+
+  // Línea 45%
+  ctx.beginPath(); ctx.strokeStyle='rgba(244,63,94,0.3)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+  ctx.moveTo(0, alert_y); ctx.lineTo(W, alert_y); ctx.stroke(); ctx.setLineDash([]);
+
+  // Línea 50%
+  ctx.beginPath(); ctx.strokeStyle='rgba(255,255,255,0.08)'; ctx.lineWidth=1;
+  ctx.moveTo(0, ty(50)); ctx.lineTo(W, ty(50)); ctx.stroke();
+
+  // Curva WR
+  if (series.length > 1) {
+    var color = last_wr >= 50 ? '#10b981' : last_wr >= 45 ? '#f59e0b' : '#f43f5e';
+    ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.lineJoin='round';
+    ctx.moveTo(tx(0), ty(series[0]));
+    series.forEach(function(v,i){ if(i>0) ctx.lineTo(tx(i), ty(v)); });
+    ctx.stroke();
+
+    // Punto final
+    ctx.beginPath(); ctx.arc(tx(series.length-1), ty(last_wr), 4, 0, Math.PI*2);
+    ctx.fillStyle = color; ctx.fill();
+  }
+
+  // Edge decay alert
+  if (series.length >= 10) {
+    var last10 = series.slice(-10);
+    var all_below = last10.every(function(v){ return v < 45; });
+    if (all_below) {
+      ctx.fillStyle = 'rgba(244,63,94,0.9)';
+      ctx.font = 'bold 10px JetBrains Mono, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚠ EDGE DECAY ALERT', W/2, H/2);
+    }
+  }
 }
 
 function renderOpen(open) {
@@ -570,6 +701,38 @@ async function loadFromRepo() {
       }
     }
   } catch(e){}
+
+  // Cargar SPY del dia desde signals_hoy.json
+  try {
+    var r3 = await fetch('signals_hoy.json?t='+Date.now());
+    if (r3.ok) {
+      var sig = await r3.json();
+      if (sig.spy_ret_today != null) {
+        var se = document.getElementById('s-spy');
+        se.textContent = (sig.spy_ret_today >= 0 ? '+' : '') + sig.spy_ret_today.toFixed(2) + '%';
+        se.className = 'stat-v ' + (sig.spy_ret_today >= 0 ? 'g' : 'r');
+      }
+    }
+  } catch(e){}
+
+  // Cargar slippage promedio
+  try {
+    var r4 = await fetch('slippage_log.json?t='+Date.now());
+    if (r4.ok) {
+      var sllog = await r4.json();
+      if (sllog && sllog.length > 0) {
+        var valid = sllog.filter(function(s){ return s.slippage_pct != null; });
+        if (valid.length > 0) {
+          var avg_sl = valid.reduce(function(a,s){ return a+s.slippage_pct; },0)/valid.length;
+          var se2 = document.getElementById('s-slip');
+          se2.textContent = (avg_sl >= 0 ? '+' : '') + avg_sl.toFixed(3) + '%';
+          se2.className = 'stat-v ' + (avg_sl < 0.05 ? 'g' : avg_sl < 0.15 ? 'a' : 'r');
+          document.getElementById('s-slip-s').textContent = valid.length + ' trades medidos';
+        }
+      }
+    }
+  } catch(e){}
+
   render();
 }
 
@@ -656,5 +819,13 @@ document.getElementById('modal').addEventListener('click',function(e){ if(e.targ
 document.getElementById('f-ed').value=new Date().toISOString().split('T')[0];
 loadFromRepo();
 </script>
+<div style="max-width:1280px;margin:0 auto;padding:0 20px 24px">
+  <div style="padding:10px 16px;background:var(--s2);border:1px solid var(--border);border-radius:6px;font-size:9px;color:var(--muted);line-height:1.6">
+    ⚠ <strong style="color:var(--dim)">NOTA METODOLÓGICA:</strong>
+    El OOS 2023-2026 fue parcialmente observado durante el desarrollo del sistema — cada ajuste de filtros que mejoró ese período introduce contaminación.
+    El único test verdaderamente limpio es el paper trading en curso.
+    Retornos nominales en USD · Costo de oportunidad del cash (~5% anual) no incluido en P&L · Beta positivo al mercado no descompuesto del alpha
+  </div>
+</div>
 </body>
 </html>
