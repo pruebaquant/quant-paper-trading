@@ -297,13 +297,45 @@ function bizDays(from, to) {
   var count = 0;
   var d = new Date(from);
   var end = new Date(to || Date.now());
-  while (d < end) { var dw=d.getDay(); if(dw!==0&&dw!==6) count++; d.setDate(d.getDate()+1); }
+  d.setDate(d.getDate()+1); // empezar desde el dia siguiente (dia de ejecucion real)
+  while (d <= end) { if(isBizDay(d)) count++; d.setDate(d.getDate()+1); }
   return count;
+}
+
+// Feriados NYSE 2025-2026 (YYYY-MM-DD)
+var NYSE_HOL = {
+  '2025-01-01':1,'2025-01-20':1,'2025-02-17':1,'2025-04-18':1,
+  '2025-05-26':1,'2025-06-19':1,'2025-07-04':1,'2025-09-01':1,
+  '2025-11-27':1,'2025-12-25':1,
+  '2026-01-01':1,'2026-01-19':1,'2026-02-16':1,'2026-04-03':1,
+  '2026-05-25':1,'2026-06-19':1,'2026-07-03':1,'2026-09-07':1,
+  '2026-11-26':1,'2026-12-25':1,
+  '2027-01-01':1,'2027-01-18':1,'2027-02-15':1,'2027-04-26':1,
+  '2027-05-31':1,'2027-06-18':1,'2027-07-05':1,'2027-09-06':1,
+  '2027-11-25':1,'2027-12-24':1
+};
+
+function isBizDay(d) {
+  var dw = d.getDay();
+  if (dw === 0 || dw === 6) return false;
+  var ds = d.toISOString().split('T')[0];
+  return !NYSE_HOL[ds];
 }
 
 function addBiz(from, n) {
   var d = new Date(from); var added = 0;
-  while (added < n) { d.setDate(d.getDate()+1); if(d.getDay()!==0&&d.getDay()!==6) added++; }
+  while (added < n) {
+    d.setDate(d.getDate()+1);
+    if (isBizDay(d)) added++;
+  }
+  return d.toISOString().split('T')[0];
+}
+
+// Siguiente día hábil desde una fecha (para calcular fecha de entrada real)
+function nextBizDay(from) {
+  var d = new Date(from);
+  d.setDate(d.getDate()+1);
+  while (!isBizDay(d)) d.setDate(d.getDate()+1);
   return d.toISOString().split('T')[0];
 }
 
@@ -411,7 +443,9 @@ function renderOpen(open) {
     var pb=t.pbuy||t.p_buy||0;
     var sig=sigStr(pb);
     var bar='<div class="sig-bar-wrap"><div class="sig-track"><div class="sig-fill" style="width:'+Math.round(sig.pct*100)+'%;background:'+sig.color+'"></div></div><span style="font-size:9px;color:'+sig.color+';min-width:58px">'+sig.label+'</span></div>';
-    return '<tr><td><span class="chip">'+t.ticker+'</span></td><td>'+t.entry_date+'</td><td>'+(t.exit_expected||'—')+'</td><td '+bdc+'>'+bds+'</td><td style="font-weight:500">'+pos+'</td><td style="color:var(--dim);font-size:10px">'+cost+'</td><td>'+bar+'</td><td style="color:var(--blue)">'+(pb?pb.toFixed(3):'—')+'</td><td><span class="badge b-open">ABIERTO</span></td><td><div style="display:flex;gap:5px"><button class="btn btn-s" style="background:var(--gdim);color:var(--green)" onclick="openModal('+t.id+')">Cerrar</button><button class="btn btn-d btn-s" onclick="delT('+t.id+')">✕</button></div></td></tr>';
+    var er=t.entry_real||nextBizDay(t.entry_date);
+    var entry_cell=t.entry_date+(er!==t.entry_date?'<br><span style="font-size:9px;color:var(--cyan)">exec: '+er+'</span>':'');
+    return '<tr><td><span class="chip">'+t.ticker+'</span></td><td>'+entry_cell+'</td><td>'+(t.exit_expected||'—')+'</td><td '+bdc+'>'+bds+'</td><td style="font-weight:500">'+pos+'</td><td style="color:var(--dim);font-size:10px">'+cost+'</td><td>'+bar+'</td><td style="color:var(--blue)">'+(pb?pb.toFixed(3):'—')+'</td><td><span class="badge b-open">ABIERTO</span></td><td><div style="display:flex;gap:5px"><button class="btn btn-s" style="background:var(--gdim);color:var(--green)" onclick="openModal('+t.id+')">Cerrar</button><button class="btn btn-d btn-s" onclick="delT('+t.id+')">✕</button></div></td></tr>';
   }).join('');
 }
 
@@ -518,7 +552,11 @@ async function loadFromRepo() {
           if(!t.pbuy&&t.p_buy) t.pbuy=t.p_buy;
           if(!t.p_buy&&t.pbuy) t.p_buy=t.pbuy;
           if(!t.exit_expected&&t.entry_date){
-            t.exit_expected=addBiz(t.entry_date,HP);
+            // Entrada real = primer dia habil despues de la señal
+            var entry_real = nextBizDay(t.entry_date);
+            // Salida = HP dias habiles desde la entrada real
+            t.exit_expected = addBiz(entry_real, HP);
+            if(!t.entry_real) t.entry_real = entry_real;
           }
           if(t.ret!=null&&t.pos_usd&&t.ret_net==null){
             var tc_pct=TC*100+(TC_FIXED/t.pos_usd)*100;
