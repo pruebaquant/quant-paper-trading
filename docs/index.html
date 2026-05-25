@@ -114,7 +114,7 @@ canvas{width:100%;height:100%}
   <div class="stat"><div class="stat-l">P&L total USD</div><div class="stat-v w" id="s-pnl">$0.00</div><div class="stat-s" id="s-pnlp">0.00% del capital</div></div>
   <div class="stat"><div class="stat-l">Win Rate</div><div class="stat-v w" id="s-wr">—</div><div class="stat-s" id="s-wrs">0G / 0P</div></div>
   <div class="stat"><div class="stat-l">Avg P&L/trade</div><div class="stat-v w" id="s-avg">$0.00</div><div class="stat-s" id="s-avgp">0.000% neto</div></div>
-  <div class="stat"><div class="stat-l">Sharpe rolling</div><div class="stat-v w" id="s-sh">—</div><div class="stat-s">ann. HP=5d</div></div>
+  <div class="stat"><div class="stat-l">Sharpe / Sortino</div><div class="stat-v w" id="s-sh">—</div><div class="stat-s" id="s-sortino">Sortino: —</div></div>
   <div class="stat"><div class="stat-l">Max Drawdown</div><div class="stat-v r" id="s-dd">$0.00</div><div class="stat-s" id="s-ddp">0.00%</div></div>
   <div class="stat"><div class="stat-l">Zscore hoy</div><div class="stat-v a" id="s-z">—</div><div class="stat-s" id="s-zs">cargando</div></div>
 </div>
@@ -399,14 +399,21 @@ function stats() {
     if(cum>peak) peak=cum;
     var d=peak-cum; if(d>dd) dd=d;
   }
-  var sharpe=null;
+  var sharpe=null, sortino=null;
   var rets=closed.map(function(t){ return t.ret_net||0; });
   if(rets.length>=5){
     var mu=rets.reduce(function(s,v){ return s+v; },0)/rets.length;
+    // Sharpe: volatilidad total
     var sig=Math.sqrt(rets.reduce(function(s,v){ return s+(v-mu)*(v-mu); },0)/rets.length);
     if(sig>0) sharpe=(mu*ANN)/(sig*Math.sqrt(ANN));
+    // Sortino: solo volatilidad de retornos negativos (downside deviation)
+    var neg=rets.filter(function(v){ return v<0; });
+    if(neg.length>=2){
+      var dsig=Math.sqrt(neg.reduce(function(s,v){ return s+v*v; },0)/rets.length);
+      if(dsig>0) sortino=(mu*ANN)/(dsig*Math.sqrt(ANN));
+    }
   }
-  return { open:open, closed:closed, wins:wins, pnl:pnl, avg:avg, avgp:avgp, dep:dep, dd:dd, sharpe:sharpe };
+  return { open:open, closed:closed, wins:wins, pnl:pnl, avg:avg, avgp:avgp, dep:dep, dd:dd, sharpe:sharpe, sortino:sortino };
 }
 
 function render() {
@@ -432,6 +439,11 @@ function render() {
   if(s.sharpe!==null){
     var she=document.getElementById('s-sh');
     she.textContent=s.sharpe.toFixed(3); she.className='stat-v '+(s.sharpe>1?'g':s.sharpe>0?'a':'r');
+  }
+  if(s.sortino!==null){
+    var soe=document.getElementById('s-sortino');
+    soe.textContent='Sortino: '+(s.sortino>=0?'+':'')+s.sortino.toFixed(3);
+    soe.style.color=s.sortino>2?'var(--green)':s.sortino>1?'var(--amber)':'var(--red)';
   }
 
   document.getElementById('s-dd').textContent='-$'+s.dd.toFixed(2);
