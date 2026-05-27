@@ -5,6 +5,10 @@ on:
     - cron: '0 21 * * 1-5'
   workflow_dispatch:
 
+concurrency:
+  group: quant-repo-push
+  cancel-in-progress: false
+
 jobs:
   generate-signals:
     runs-on: ubuntu-latest
@@ -31,7 +35,7 @@ jobs:
           GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
 
-     - name: Commit results
+      - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
