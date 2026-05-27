@@ -12,11 +12,11 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Python 3.11
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -31,11 +31,14 @@ jobs:
           GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
           NOTIFY_EMAIL: ${{ secrets.NOTIFY_EMAIL }}
 
-      - name: Commit
+      - name: Commit results
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
-          git add trades.json docs/trades.json slippage_log.json
-          git diff --staged --quiet || git commit -m "slippage $(date -u +'%Y-%m-%d')"
-          git push
+          git add signals_hoy.json signals_log.json trades.json \
+                  docs/signals_hoy.json docs/trades.json
+          git diff --staged --quiet && exit 0
+          git commit -m "auto: signals $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git fetch origin main
+          git rebase origin/main
+          git push origin main
