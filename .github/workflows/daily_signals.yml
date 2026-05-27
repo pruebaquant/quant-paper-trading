@@ -39,4 +39,5 @@ jobs:
                   docs/signals_hoy.json docs/trades.json
           git diff --staged --quiet || \
             git commit -m "auto: signals $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main
           git push
