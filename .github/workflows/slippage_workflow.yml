@@ -5,6 +5,10 @@ on:
     - cron: '0 15 * * 2-6'
   workflow_dispatch:
 
+concurrency:
+  group: quant-repo-push
+  cancel-in-progress: false
+
 jobs:
   record-opens:
     runs-on: ubuntu-latest
