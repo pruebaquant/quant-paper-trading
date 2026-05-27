@@ -2,7 +2,6 @@ name: Morning Slippage
 
 on:
   schedule:
-    # 15:00 UTC = 10:00 ET — 30 min after market open
     - cron: '0 15 * * 2-6'
   workflow_dispatch:
 
@@ -14,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -28,7 +29,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add trades.json docs/trades.json slippage_log.json
-          git diff --staged --quiet || git commit -m "slippage $(date -u +'%Y-%m-%d')"
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -m "slippage $(date -u +'%Y-%m-%d')"
+          git fetch origin main
+          git rebase origin/main
+          git push origin main
