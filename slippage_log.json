@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026-05-27",
+    "ticker": "NVDA",
+    "close_signal": 215.33,
+    "open_real": 214.12,
+    "slippage_pct": -0.5619,
+    "slippage_usd": -28.1,
+    "pos_usd": null
+  },
+  {
+    "date": "2026-05-27",
+    "ticker": "INDA",
+    "close_signal": 48.23,
+    "open_real": 48.69,
+    "slippage_pct": 0.9538,
+    "slippage_usd": 47.69,
+    "pos_usd": null
+  },
+  {
+    "date": "2026-05-27",
+    "ticker": "AMD",
+    "close_signal": 467.51,
+    "open_real": 508.0,
+    "slippage_pct": 8.6608,
+    "slippage_usd": 433.04,
+    "pos_usd": null
+  },
+  {
+    "date": "2026-05-27",
+    "ticker": "IEMG",
+    "close_signal": 80.69,
+    "open_real": 83.85,
+    "slippage_pct": 3.9162,
+    "slippage_usd": 195.81,
+    "pos_usd": null
+  },
+  {
+    "date": "2026-05-27",
+    "ticker": "INTC",
+    "close_signal": 119.84,
+    "open_real": 124.605,
+    "slippage_pct": 3.9761,
+    "slippage_usd": 198.81,
+    "pos_usd": null
+  }
+]

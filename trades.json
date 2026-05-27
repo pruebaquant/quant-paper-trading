@@ -17,7 +17,11 @@
     "ret_net": null,
     "pnl_usd": null,
     "tc_usd": null,
-    "registered_by": "manual"
+    "registered_by": "manual",
+    "open_price": 214.12,
+    "slippage_pct": -0.5619,
+    "slippage_usd": -28.1,
+    "entry_price_real": 214.12
   },
   {
     "id": 2,
@@ -37,7 +41,11 @@
     "ret_net": null,
     "pnl_usd": null,
     "tc_usd": null,
-    "registered_by": "manual"
+    "registered_by": "manual",
+    "open_price": 48.69,
+    "slippage_pct": 0.9538,
+    "slippage_usd": 47.69,
+    "entry_price_real": 48.69
   },
   {
     "id": 3,
@@ -57,7 +65,11 @@
     "ret_net": null,
     "pnl_usd": null,
     "tc_usd": null,
-    "registered_by": "manual"
+    "registered_by": "manual",
+    "open_price": 508.0,
+    "slippage_pct": 8.6608,
+    "slippage_usd": 433.04,
+    "entry_price_real": 508.0
   },
   {
     "id": 4,
@@ -77,7 +89,11 @@
     "ret_net": null,
     "pnl_usd": null,
     "tc_usd": null,
-    "registered_by": "manual"
+    "registered_by": "manual",
+    "open_price": 83.85,
+    "slippage_pct": 3.9162,
+    "slippage_usd": 195.81,
+    "entry_price_real": 83.85
   },
   {
     "id": 5,
@@ -97,6 +113,10 @@
     "ret_net": null,
     "pnl_usd": null,
     "tc_usd": null,
-    "registered_by": "manual"
+    "registered_by": "manual",
+    "open_price": 124.605,
+    "slippage_pct": 3.9761,
+    "slippage_usd": 198.81,
+    "entry_price_real": 124.605
   }
 ]
