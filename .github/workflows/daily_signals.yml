@@ -39,6 +39,11 @@ jobs:
                   docs/signals_hoy.json docs/trades.json
           git diff --staged --quiet && exit 0
           git commit -m "auto: signals $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git fetch origin main
-          git rebase origin/main
-          git push --force-with-lease origin main
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            git push origin main && exit 0
+            echo "Push failed, retry $i/5..."
+            sleep 5
+          done
+          exit 1
