@@ -32,6 +32,11 @@ jobs:
           git add trades.json docs/trades.json slippage_log.json
           git diff --staged --quiet && exit 0
           git commit -m "slippage $(date -u +'%Y-%m-%d')"
-          git fetch origin main
-          git rebase origin/main
-          git push --force-with-lease origin main
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            git push origin main && exit 0
+            echo "Push failed, retry $i/5..."
+            sleep 5
+          done
+          exit 1
