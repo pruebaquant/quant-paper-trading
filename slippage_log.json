@@ -43,5 +43,50 @@
     "slippage_pct": 3.9761,
     "slippage_usd": 198.81,
     "pos_usd": null
+  },
+  {
+    "date": "2026-06-03",
+    "ticker": "ORCL",
+    "close_signal": 244.58,
+    "open_real": 240.48,
+    "slippage_pct": -1.6763,
+    "slippage_usd": -167.63,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-03",
+    "ticker": "AMD",
+    "close_signal": 521.54,
+    "open_real": 533.82,
+    "slippage_pct": 2.3546,
+    "slippage_usd": 235.46,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-03",
+    "ticker": "CRM",
+    "close_signal": 200.84,
+    "open_real": 197.27,
+    "slippage_pct": -1.7775,
+    "slippage_usd": -177.75,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-03",
+    "ticker": "ADBE",
+    "close_signal": 262.11,
+    "open_real": 259.09,
+    "slippage_pct": -1.1522,
+    "slippage_usd": -82.3,
+    "pos_usd": 7142.86
+  },
+  {
+    "date": "2026-06-03",
+    "ticker": "NVDA",
+    "close_signal": 222.82,
+    "open_real": 221.685,
+    "slippage_pct": -0.5094,
+    "slippage_usd": -28.3,
+    "pos_usd": 5555.56
   }
 ]

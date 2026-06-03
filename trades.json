@@ -166,7 +166,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-03T14:18:14.870166Z"
-    }
+    },
+    "open_price": 240.48,
+    "slippage_pct": -1.6763,
+    "slippage_usd": -167.63,
+    "entry_price_real": 240.48
   },
   {
     "ticker": "AMD",
@@ -210,7 +214,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-03T14:18:14.870166Z"
-    }
+    },
+    "open_price": 533.82,
+    "slippage_pct": 2.3546,
+    "slippage_usd": 235.46,
+    "entry_price_real": 533.82
   },
   {
     "ticker": "CRM",
@@ -254,7 +262,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-03T14:18:14.870166Z"
-    }
+    },
+    "open_price": 197.27,
+    "slippage_pct": -1.7775,
+    "slippage_usd": -177.75,
+    "entry_price_real": 197.27
   },
   {
     "ticker": "ADBE",
@@ -298,7 +310,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-03T14:18:14.870166Z"
-    }
+    },
+    "open_price": 259.09,
+    "slippage_pct": -1.1522,
+    "slippage_usd": -82.3,
+    "entry_price_real": 259.09
   },
   {
     "ticker": "NVDA",
@@ -342,6 +358,10 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-03T14:18:14.870166Z"
-    }
+    },
+    "open_price": 221.685,
+    "slippage_pct": -0.5094,
+    "slippage_usd": -28.3,
+    "entry_price_real": 221.685
   }
 ]
