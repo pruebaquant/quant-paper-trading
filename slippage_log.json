@@ -88,5 +88,50 @@
     "slippage_pct": -0.5094,
     "slippage_usd": -28.3,
     "pos_usd": 5555.56
+  },
+  {
+    "date": "2026-06-18",
+    "ticker": "EEM",
+    "close_signal": 68.56,
+    "open_real": 70.18,
+    "slippage_pct": 2.3629,
+    "slippage_usd": 236.29,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-18",
+    "ticker": "IEMG",
+    "close_signal": 83.02,
+    "open_real": 85.02,
+    "slippage_pct": 2.4091,
+    "slippage_usd": 240.91,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-18",
+    "ticker": "INTC",
+    "close_signal": 121.1,
+    "open_real": 131.79,
+    "slippage_pct": 8.8274,
+    "slippage_usd": 882.74,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-06-18",
+    "ticker": "MSFT",
+    "close_signal": 378.91,
+    "open_real": 377.915,
+    "slippage_pct": -0.2626,
+    "slippage_usd": -18.76,
+    "pos_usd": 7142.86
+  },
+  {
+    "date": "2026-06-18",
+    "ticker": "QQQ",
+    "close_signal": 722.51,
+    "open_real": 737.1,
+    "slippage_pct": 2.0193,
+    "slippage_usd": 112.19,
+    "pos_usd": 5555.56
   }
 ]

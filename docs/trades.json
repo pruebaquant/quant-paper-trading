@@ -411,7 +411,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-18T11:56:25.403249Z"
-    }
+    },
+    "open_price": 70.18,
+    "slippage_pct": 2.3629,
+    "slippage_usd": 236.29,
+    "entry_price_real": 70.18
   },
   {
     "ticker": "IEMG",
@@ -455,7 +459,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-18T11:56:25.403249Z"
-    }
+    },
+    "open_price": 85.02,
+    "slippage_pct": 2.4091,
+    "slippage_usd": 240.91,
+    "entry_price_real": 85.02
   },
   {
     "ticker": "INTC",
@@ -499,7 +507,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-18T11:56:25.403249Z"
-    }
+    },
+    "open_price": 131.79,
+    "slippage_pct": 8.8274,
+    "slippage_usd": 882.74,
+    "entry_price_real": 131.79
   },
   {
     "ticker": "MSFT",
@@ -543,7 +555,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-18T11:56:25.403249Z"
-    }
+    },
+    "open_price": 377.915,
+    "slippage_pct": -0.2626,
+    "slippage_usd": -18.76,
+    "entry_price_real": 377.915
   },
   {
     "ticker": "QQQ",
@@ -587,6 +603,10 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-06-18T11:56:25.403249Z"
-    }
+    },
+    "open_price": 737.1,
+    "slippage_pct": 2.0193,
+    "slippage_usd": 112.19,
+    "entry_price_real": 737.1
   }
 ]
