@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-23T08:47:14.573015Z",
-  "date": "2026-06-22",
-  "zscore": 0.198,
-  "system_active": true,
+  "generated_at": "2026-06-24T00:13:27.716513Z",
+  "date": "2026-06-23",
+  "zscore": -0.173,
+  "system_active": false,
   "n_signals": 0,
   "signals": [],
   "closed_today": 0,
