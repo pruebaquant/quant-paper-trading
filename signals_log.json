@@ -1068,5 +1068,238 @@
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-07-06T22:08:54.997202Z",
+    "date": "2026-07-02",
+    "zscore": 0.689,
+    "system_active": true,
+    "n_signals": 5,
+    "signals": [
+      {
+        "ticker": "INTC",
+        "entry_date": "2026-07-02",
+        "entry_real": "2026-07-06",
+        "exit_expected": "2026-07-13",
+        "p_buy": 0.7126,
+        "pbuy": 0.7126,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 120.35,
+        "zscore": 0.689,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1783375741853,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.4788,
+            "mom_12_1_cs": 0.4556,
+            "ret_1m": 0.1151,
+            "vol_5d": 0.0509,
+            "ivol_12m": 0.0344
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 50000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-07-06T22:08:54.997202Z"
+        }
+      },
+      {
+        "ticker": "MSFT",
+        "entry_date": "2026-07-02",
+        "entry_real": "2026-07-06",
+        "exit_expected": "2026-07-13",
+        "p_buy": 0.706,
+        "pbuy": 0.706,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 390.49,
+        "zscore": 0.689,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1783375741856,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.9267,
+            "mom_12_1_cs": 0.07,
+            "ret_1m": -0.1152,
+            "vol_5d": 0.0253,
+            "ivol_12m": 0.0132
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 16666.67
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-07-06T22:08:54.997202Z"
+        }
+      },
+      {
+        "ticker": "ABT",
+        "entry_date": "2026-07-02",
+        "entry_real": "2026-07-06",
+        "exit_expected": "2026-07-13",
+        "p_buy": 0.6852,
+        "pbuy": 0.6852,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 95.4,
+        "zscore": 0.689,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1783375741858,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.2336,
+            "mom_12_1_cs": 0.0188,
+            "ret_1m": 0.0969,
+            "vol_5d": 0.0171,
+            "ivol_12m": 0.0138
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 10000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-07-06T22:08:54.997202Z"
+        }
+      },
+      {
+        "ticker": "IEMG",
+        "entry_date": "2026-07-02",
+        "entry_real": "2026-07-06",
+        "exit_expected": "2026-07-13",
+        "p_buy": 0.6852,
+        "pbuy": 0.6852,
+        "regime": "high_vol",
+        "asset_type": "EM_ETF",
+        "entry_price": 79.84,
+        "zscore": 0.689,
+        "pos_usd": 7142.86,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1783375741861,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.7681,
+            "mom_12_1_cs": -0.0108,
+            "ret_1m": -0.0641,
+            "vol_5d": 0.0145,
+            "ivol_12m": 0.0082
+          },
+          "vol_info": {
+            "pos_usd": 7142.86,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 7142.86
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-07-06T22:08:54.997202Z"
+        }
+      },
+      {
+        "ticker": "FXI",
+        "entry_date": "2026-07-02",
+        "entry_real": "2026-07-06",
+        "exit_expected": "2026-07-13",
+        "p_buy": 0.6827,
+        "pbuy": 0.6827,
+        "regime": "high_vol",
+        "asset_type": "EM_ETF",
+        "entry_price": 31.91,
+        "zscore": 0.689,
+        "pos_usd": 5555.56,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1783375741863,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.3643,
+            "mom_12_1_cs": 0.0621,
+            "ret_1m": -0.1158,
+            "vol_5d": 0.0098,
+            "ivol_12m": 0.0072
+          },
+          "vol_info": {
+            "pos_usd": 5555.56,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 5555.56
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-07-06T22:08:54.997202Z"
+        }
+      }
+    ],
+    "closed_today": 5,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
   }
 ]
