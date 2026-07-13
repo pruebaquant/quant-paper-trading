@@ -855,11 +855,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-13",
+    "exit_price": 109.84,
+    "ret": -8.733,
+    "ret_net": -8.783,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -881,7 +881,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-06T22:08:54.997202Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "MSFT",
@@ -899,11 +900,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-13",
+    "exit_price": 385.1,
+    "ret": -1.38,
+    "ret_net": -1.43,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -925,7 +926,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-06T22:08:54.997202Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "ABT",
@@ -943,11 +945,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-13",
+    "exit_price": 93.93,
+    "ret": -1.541,
+    "ret_net": -1.591,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -969,7 +971,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-06T22:08:54.997202Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "IEMG",
@@ -987,11 +990,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-07-13",
+    "exit_price": 81.32,
+    "ret": 1.854,
+    "ret_net": 1.804,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1013,7 +1016,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-06T22:08:54.997202Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "FXI",
@@ -1031,11 +1035,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-07-13",
+    "exit_price": 33.48,
+    "ret": 4.92,
+    "ret_net": 4.87,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1057,6 +1061,7 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-06T22:08:54.997202Z"
-    }
+    },
+    "closed_by": "auto"
   }
 ]
