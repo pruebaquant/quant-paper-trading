@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-23T21:59:14.886470Z",
-  "date": "2026-07-22",
-  "zscore": 0.012,
-  "system_active": true,
+  "generated_at": "2026-07-24T21:58:19.478011Z",
+  "date": "2026-07-23",
+  "zscore": -0.221,
+  "system_active": false,
   "n_signals": 0,
   "signals": [],
-  "closed_today": 0,
+  "closed_today": 5,
   "spy_ret_today": null,
   "risk_free_annual": 5.0,
   "dq_issues": 1

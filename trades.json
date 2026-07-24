@@ -1080,11 +1080,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-24",
+    "exit_price": 21.41,
+    "ret": -5.475,
+    "ret_net": -5.525,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1106,7 +1106,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-17T21:43:32.814853Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "GILD",
@@ -1124,11 +1125,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-24",
+    "exit_price": 130.86,
+    "ret": -3.991,
+    "ret_net": -4.041,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1150,7 +1151,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-17T21:43:32.814853Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "ADBE",
@@ -1168,11 +1170,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-24",
+    "exit_price": 212.17,
+    "ret": -9.834,
+    "ret_net": -9.884,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1194,7 +1196,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-17T21:43:32.814853Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "INTC",
@@ -1212,11 +1215,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-07-24",
+    "exit_price": 100.23,
+    "ret": 3.351,
+    "ret_net": 3.301,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1238,7 +1241,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-17T21:43:32.814853Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "GIS",
@@ -1256,11 +1260,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-07-24",
+    "exit_price": 35.55,
+    "ret": -8.14,
+    "ret_net": -8.19,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1282,6 +1286,7 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-17T21:43:32.814853Z"
-    }
+    },
+    "closed_by": "auto"
   }
 ]
