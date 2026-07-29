@@ -1,55 +1,10 @@
 {
-  "generated_at": "2026-07-28T21:56:38.946208Z",
-  "date": "2026-07-27",
-  "zscore": 0.153,
+  "generated_at": "2026-07-29T21:53:03.543319Z",
+  "date": "2026-07-28",
+  "zscore": 0.114,
   "system_active": true,
-  "n_signals": 1,
-  "signals": [
-    {
-      "ticker": "CRM",
-      "entry_date": "2026-07-27",
-      "entry_real": "2026-07-28",
-      "exit_expected": "2026-08-04",
-      "p_buy": 0.6904,
-      "pbuy": 0.6904,
-      "regime": "high_vol",
-      "asset_type": "USA_Equity",
-      "entry_price": 173.6,
-      "zscore": 0.153,
-      "pos_usd": 10000.0,
-      "vol_realized": null,
-      "vol_scalar": 1.0,
-      "vol_method": "equal_weight",
-      "vol_annual": null,
-      "status": "open",
-      "exit_date": null,
-      "exit_price": null,
-      "ret": null,
-      "ret_net": null,
-      "pnl_usd": null,
-      "tc_usd": null,
-      "registered_by": "auto",
-      "id": 1785275805301,
-      "audit": {
-        "features": {
-          "vol_ratio": 1.2296,
-          "mom_12_1_cs": -0.1488,
-          "ret_1m": 0.1559,
-          "vol_5d": 0.0267,
-          "ivol_12m": 0.0217
-        },
-        "vol_info": {
-          "pos_usd": 10000.0,
-          "vol_realized": null,
-          "vol_scalar": 1.0,
-          "vol_method": "equal_weight",
-          "base_usd": 10000.0
-        },
-        "dq_issues": 1,
-        "generated_at": "2026-07-28T21:56:38.946208Z"
-      }
-    }
-  ],
+  "n_signals": 0,
+  "signals": [],
   "closed_today": 0,
   "spy_ret_today": null,
   "risk_free_annual": 5.0,
