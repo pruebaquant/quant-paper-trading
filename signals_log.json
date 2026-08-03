@@ -1972,5 +1972,194 @@
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-08-03T22:00:33.683276Z",
+    "date": "2026-07-31",
+    "zscore": 0.212,
+    "system_active": true,
+    "n_signals": 4,
+    "signals": [
+      {
+        "ticker": "MSFT",
+        "entry_date": "2026-07-31",
+        "entry_real": "2026-08-03",
+        "exit_expected": "2026-08-10",
+        "p_buy": 0.7152,
+        "pbuy": 0.7152,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 464.72,
+        "zscore": 0.212,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1785794440471,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.6286,
+            "mom_12_1_cs": 0.1462,
+            "ret_1m": 0.2093,
+            "vol_5d": 0.0228,
+            "ivol_12m": 0.014
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 25000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-03T22:00:33.683276Z"
+        }
+      },
+      {
+        "ticker": "ORCL",
+        "entry_date": "2026-07-31",
+        "entry_real": "2026-08-03",
+        "exit_expected": "2026-08-10",
+        "p_buy": 0.7022,
+        "pbuy": 0.7022,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 129.87,
+        "zscore": 0.212,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1785794440473,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.2583,
+            "mom_12_1_cs": 0.2426,
+            "ret_1m": -0.0855,
+            "vol_5d": 0.0355,
+            "ivol_12m": 0.0282
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 12500.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-03T22:00:33.683276Z"
+        }
+      },
+      {
+        "ticker": "BMY",
+        "entry_date": "2026-07-31",
+        "entry_real": "2026-08-03",
+        "exit_expected": "2026-08-10",
+        "p_buy": 0.6917,
+        "pbuy": 0.6917,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 65.31,
+        "zscore": 0.212,
+        "pos_usd": 8333.33,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1785794440474,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.3838,
+            "mom_12_1_cs": 0.1991,
+            "ret_1m": 0.1702,
+            "vol_5d": 0.0202,
+            "ivol_12m": 0.0146
+          },
+          "vol_info": {
+            "pos_usd": 8333.33,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 8333.33
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-03T22:00:33.683276Z"
+        }
+      },
+      {
+        "ticker": "ADBE",
+        "entry_date": "2026-07-31",
+        "entry_real": "2026-08-03",
+        "exit_expected": "2026-08-10",
+        "p_buy": 0.6868,
+        "pbuy": 0.6868,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 250.41,
+        "zscore": 0.212,
+        "pos_usd": 6250.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1785794440476,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.5787,
+            "mom_12_1_cs": 0.126,
+            "ret_1m": 0.1869,
+            "vol_5d": 0.0319,
+            "ivol_12m": 0.0202
+          },
+          "vol_info": {
+            "pos_usd": 6250.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 6250.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-03T22:00:33.683276Z"
+        }
+      }
+    ],
+    "closed_today": 4,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
   }
 ]
