@@ -1485,11 +1485,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-04",
+    "exit_price": 185.95,
+    "ret": 7.114,
+    "ret_net": 7.064,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1511,7 +1511,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-07-28T21:56:38.946208Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "MSFT",
