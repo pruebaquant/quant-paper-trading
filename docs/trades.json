@@ -1530,11 +1530,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-10",
+    "exit_price": 499.99,
+    "ret": 7.59,
+    "ret_net": 7.54,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1556,7 +1556,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-03T22:00:33.683276Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "ORCL",
@@ -1574,11 +1575,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-10",
+    "exit_price": 147.02,
+    "ret": 13.206,
+    "ret_net": 13.156,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1600,7 +1601,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-03T22:00:33.683276Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "BMY",
@@ -1618,11 +1620,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-08-10",
+    "exit_price": 64.72,
+    "ret": -0.903,
+    "ret_net": -0.953,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1644,7 +1646,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-03T22:00:33.683276Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "ADBE",
@@ -1662,11 +1665,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-10",
+    "exit_price": 265.21,
+    "ret": 5.91,
+    "ret_net": 5.86,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1688,6 +1691,7 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-03T22:00:33.683276Z"
-    }
+    },
+    "closed_by": "auto"
   }
 ]
