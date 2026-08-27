@@ -1710,11 +1710,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-08-27",
+    "exit_price": 23.23,
+    "ret": -2.436,
+    "ret_net": -2.486,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1736,7 +1736,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-20T21:20:42.231498Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "CRM",
@@ -1754,11 +1755,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-08-27",
+    "exit_price": 205.62,
+    "ret": -0.228,
+    "ret_net": -0.278,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1780,7 +1781,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-20T21:20:42.231498Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "MRK",
@@ -1798,11 +1800,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-27",
+    "exit_price": 153.1,
+    "ret": 0.591,
+    "ret_net": 0.541,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1824,7 +1826,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-20T21:20:42.231498Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "ORCL",
@@ -1842,11 +1845,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-27",
+    "exit_price": 148.87,
+    "ret": 3.519,
+    "ret_net": 3.469,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1868,7 +1871,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-20T21:20:42.231498Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "PFE",
@@ -1886,11 +1890,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-08-27",
+    "exit_price": 28.3,
+    "ret": 0.212,
+    "ret_net": 0.162,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1912,6 +1916,7 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-20T21:20:42.231498Z"
-    }
+    },
+    "closed_by": "auto"
   }
 ]
