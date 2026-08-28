@@ -2586,5 +2586,150 @@
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-08-28T05:02:40.648178Z",
+    "date": "2026-08-27",
+    "zscore": 0.07,
+    "system_active": true,
+    "n_signals": 3,
+    "signals": [
+      {
+        "ticker": "CRM",
+        "entry_date": "2026-08-27",
+        "entry_real": "2026-08-28",
+        "exit_expected": "2026-09-04",
+        "p_buy": 0.7267,
+        "pbuy": 0.7267,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 252.05,
+        "zscore": 0.07,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1787893367112,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.1606,
+            "mom_12_1_cs": -0.3196,
+            "ret_1m": 0.338,
+            "vol_5d": 0.0258,
+            "ivol_12m": 0.0222
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 50000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-28T05:02:40.648178Z"
+        }
+      },
+      {
+        "ticker": "MRK",
+        "entry_date": "2026-08-27",
+        "entry_real": "2026-08-28",
+        "exit_expected": "2026-09-04",
+        "p_buy": 0.6668,
+        "pbuy": 0.6668,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 149.54,
+        "zscore": 0.07,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1787893367113,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.052,
+            "mom_12_1_cs": -0.1414,
+            "ret_1m": 0.1471,
+            "vol_5d": 0.0164,
+            "ivol_12m": 0.0156
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 16666.67
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-28T05:02:40.648178Z"
+        }
+      },
+      {
+        "ticker": "NVDA",
+        "entry_date": "2026-08-27",
+        "entry_real": "2026-08-28",
+        "exit_expected": "2026-09-04",
+        "p_buy": 0.6692,
+        "pbuy": 0.6692,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 227.98,
+        "zscore": 0.07,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1787893367115,
+        "audit": {
+          "features": {
+            "vol_ratio": 0.8953,
+            "mom_12_1_cs": -0.2818,
+            "ret_1m": 0.1998,
+            "vol_5d": 0.0171,
+            "ivol_12m": 0.0191
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 10000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-08-28T05:02:40.648178Z"
+        }
+      }
+    ],
+    "closed_today": 0,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
   }
 ]
