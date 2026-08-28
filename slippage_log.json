@@ -133,5 +133,32 @@
     "slippage_pct": 2.0193,
     "slippage_usd": 112.19,
     "pos_usd": 5555.56
+  },
+  {
+    "date": "2026-08-28",
+    "ticker": "CRM",
+    "close_signal": 252.05,
+    "open_real": 250.47,
+    "slippage_pct": -0.6269,
+    "slippage_usd": -62.69,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-08-28",
+    "ticker": "MRK",
+    "close_signal": 149.54,
+    "open_real": 146.72,
+    "slippage_pct": -1.8858,
+    "slippage_usd": -188.58,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-08-28",
+    "ticker": "NVDA",
+    "close_signal": 227.98,
+    "open_real": 227.33,
+    "slippage_pct": -0.2851,
+    "slippage_usd": -28.51,
+    "pos_usd": 10000.0
   }
 ]

@@ -1961,7 +1961,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-28T05:02:40.648178Z"
-    }
+    },
+    "open_price": 250.47,
+    "slippage_pct": -0.6269,
+    "slippage_usd": -62.69,
+    "entry_price_real": 250.47
   },
   {
     "ticker": "MRK",
@@ -2005,7 +2009,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-28T05:02:40.648178Z"
-    }
+    },
+    "open_price": 146.72,
+    "slippage_pct": -1.8858,
+    "slippage_usd": -188.58,
+    "entry_price_real": 146.72
   },
   {
     "ticker": "NVDA",
@@ -2049,6 +2057,10 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-08-28T05:02:40.648178Z"
-    }
+    },
+    "open_price": 227.33,
+    "slippage_pct": -0.2851,
+    "slippage_usd": -28.51,
+    "entry_price_real": 227.33
   }
 ]
