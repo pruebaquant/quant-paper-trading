@@ -1935,11 +1935,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-09-04",
+    "exit_price": 264.43,
+    "ret": 4.912,
+    "ret_net": 4.862,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -1965,7 +1965,8 @@
     "open_price": 250.47,
     "slippage_pct": -0.6269,
     "slippage_usd": -62.69,
-    "entry_price_real": 250.47
+    "entry_price_real": 250.47,
+    "closed_by": "auto"
   },
   {
     "ticker": "MRK",
@@ -1983,11 +1984,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-09-04",
+    "exit_price": 152.34,
+    "ret": 1.872,
+    "ret_net": 1.822,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2013,7 +2014,8 @@
     "open_price": 146.72,
     "slippage_pct": -1.8858,
     "slippage_usd": -188.58,
-    "entry_price_real": 146.72
+    "entry_price_real": 146.72,
+    "closed_by": "auto"
   },
   {
     "ticker": "NVDA",
@@ -2031,11 +2033,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-09-04",
+    "exit_price": 228.45,
+    "ret": 0.206,
+    "ret_net": 0.156,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2061,6 +2063,7 @@
     "open_price": 227.33,
     "slippage_pct": -0.2851,
     "slippage_usd": -28.51,
-    "entry_price_real": 227.33
+    "entry_price_real": 227.33,
+    "closed_by": "auto"
   }
 ]
