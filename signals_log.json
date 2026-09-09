@@ -2827,5 +2827,17 @@
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-09-09T22:51:41.272317Z",
+    "date": "2026-09-08",
+    "zscore": -0.652,
+    "system_active": false,
+    "n_signals": 0,
+    "signals": [],
+    "closed_today": 0,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
   }
 ]
