@@ -1,10 +1,55 @@
 {
-  "generated_at": "2026-09-23T23:22:40.177197Z",
-  "date": "2026-09-22",
-  "zscore": 1.926,
+  "generated_at": "2026-09-24T23:42:18.786486Z",
+  "date": "2026-09-23",
+  "zscore": 0.641,
   "system_active": true,
-  "n_signals": 0,
-  "signals": [],
+  "n_signals": 1,
+  "signals": [
+    {
+      "ticker": "GIS",
+      "entry_date": "2026-09-23",
+      "entry_real": "2026-09-24",
+      "exit_expected": "2026-10-01",
+      "p_buy": 0.7062,
+      "pbuy": 0.7062,
+      "regime": "high_vol",
+      "asset_type": "USA_Equity",
+      "entry_price": 35.82,
+      "zscore": 0.641,
+      "pos_usd": 10000.0,
+      "vol_realized": null,
+      "vol_scalar": 1.0,
+      "vol_method": "equal_weight",
+      "vol_annual": null,
+      "status": "open",
+      "exit_date": null,
+      "exit_price": null,
+      "ret": null,
+      "ret_net": null,
+      "pnl_usd": null,
+      "tc_usd": null,
+      "registered_by": "auto",
+      "id": 1790293347453,
+      "audit": {
+        "features": {
+          "vol_ratio": 1.1028,
+          "mom_12_1_cs": 0.0456,
+          "ret_1m": -0.1246,
+          "vol_5d": 0.0176,
+          "ivol_12m": 0.016
+        },
+        "vol_info": {
+          "pos_usd": 10000.0,
+          "vol_realized": null,
+          "vol_scalar": 1.0,
+          "vol_method": "equal_weight",
+          "base_usd": 10000.0
+        },
+        "dq_issues": 1,
+        "generated_at": "2026-09-24T23:42:18.786486Z"
+      }
+    }
+  ],
   "closed_today": 0,
   "spy_ret_today": null,
   "risk_free_annual": 5.0,
