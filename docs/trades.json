@@ -2082,11 +2082,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-09-29",
+    "exit_price": 19.37,
+    "ret": -2.81,
+    "ret_net": -2.86,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2108,7 +2108,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-09-22T23:24:03.317682Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "EWZ",
@@ -2126,11 +2127,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-09-29",
+    "exit_price": 36.82,
+    "ret": -3.283,
+    "ret_net": -3.333,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2152,7 +2153,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-09-22T23:24:03.317682Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "INTC",
@@ -2170,11 +2172,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-09-29",
+    "exit_price": 123.0,
+    "ret": 1.002,
+    "ret_net": 0.952,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2196,7 +2198,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-09-22T23:24:03.317682Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "META",
@@ -2214,11 +2217,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-09-29",
+    "exit_price": 751.66,
+    "ret": 1.404,
+    "ret_net": 1.354,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2240,7 +2243,8 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-09-22T23:24:03.317682Z"
-    }
+    },
+    "closed_by": "auto"
   },
   {
     "ticker": "GIS",
