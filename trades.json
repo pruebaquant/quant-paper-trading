@@ -2262,11 +2262,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-10-01",
+    "exit_price": 33.82,
+    "ret": -5.583,
+    "ret_net": -5.633,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2288,6 +2288,7 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-09-24T23:42:18.786486Z"
-    }
+    },
+    "closed_by": "auto"
   }
 ]

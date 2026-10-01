@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-30T00:01:18.239211Z",
-  "date": "2026-09-29",
+  "generated_at": "2026-10-01T00:17:22.461583Z",
+  "date": "2026-09-30",
   "zscore": null,
   "system_active": false,
   "n_signals": 0,
   "signals": [],
-  "closed_today": 0,
+  "closed_today": 1,
   "spy_ret_today": null,
   "risk_free_annual": 5.0,
   "dq_issues": 1
