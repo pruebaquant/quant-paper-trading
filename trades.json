@@ -2307,11 +2307,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-10-13",
+    "exit_price": 13.68,
+    "ret": 3.715,
+    "ret_net": 3.665,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2337,7 +2337,8 @@
     "open_price": 13.23,
     "slippage_pct": 0.3033,
     "slippage_usd": 30.33,
-    "entry_price_real": 13.23
+    "entry_price_real": 13.23,
+    "closed_by": "auto"
   },
   {
     "ticker": "EWZ",
@@ -2355,11 +2356,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-10-13",
+    "exit_price": 43.54,
+    "ret": 1.303,
+    "ret_net": 1.253,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2385,7 +2386,8 @@
     "open_price": 43.545,
     "slippage_pct": 1.3146,
     "slippage_usd": 131.46,
-    "entry_price_real": 43.545
+    "entry_price_real": 43.545,
+    "closed_by": "auto"
   },
   {
     "ticker": "GIS",
@@ -2403,11 +2405,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-10-13",
+    "exit_price": 32.7,
+    "ret": 3.22,
+    "ret_net": 3.17,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2433,7 +2435,8 @@
     "open_price": 31.85,
     "slippage_pct": 0.5366,
     "slippage_usd": 53.66,
-    "entry_price_real": 31.85
+    "entry_price_real": 31.85,
+    "closed_by": "auto"
   },
   {
     "ticker": "LLY",
@@ -2451,11 +2454,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-10-13",
+    "exit_price": 1182.62,
+    "ret": 3.455,
+    "ret_net": 3.405,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2481,7 +2484,8 @@
     "open_price": 1147.15,
     "slippage_pct": 0.3525,
     "slippage_usd": 25.18,
-    "entry_price_real": 1147.15
+    "entry_price_real": 1147.15,
+    "closed_by": "auto"
   },
   {
     "ticker": "ORCL",
@@ -2499,11 +2503,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "loss",
+    "exit_date": "2026-10-13",
+    "exit_price": 137.39,
+    "ret": -3.572,
+    "ret_net": -3.622,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -2529,6 +2533,7 @@
     "open_price": 143.93,
     "slippage_pct": 1.0177,
     "slippage_usd": 56.54,
-    "entry_price_real": 143.93
+    "entry_price_real": 143.93,
+    "closed_by": "auto"
   }
 ]
