@@ -1,17 +1,5 @@
 [
   {
-    "generated_at": "2026-06-06T07:38:55.883656Z",
-    "date": "2026-06-05",
-    "zscore": -0.718,
-    "system_active": false,
-    "n_signals": 0,
-    "signals": [],
-    "closed_today": 0,
-    "spy_ret_today": null,
-    "risk_free_annual": 5.0,
-    "dq_issues": 1
-  },
-  {
     "generated_at": "2026-06-09T08:50:57.283623Z",
     "date": "2026-06-08",
     "zscore": -0.577,
@@ -3155,6 +3143,18 @@
     "n_signals": 0,
     "signals": [],
     "closed_today": 5,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-10-14T00:03:04.653186Z",
+    "date": "2026-10-13",
+    "zscore": null,
+    "system_active": false,
+    "n_signals": 0,
+    "signals": [],
+    "closed_today": 0,
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 1
