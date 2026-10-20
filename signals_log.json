@@ -1,17 +1,5 @@
 [
   {
-    "generated_at": "2026-06-12T11:30:03.420197Z",
-    "date": "2026-06-11",
-    "zscore": -0.772,
-    "system_active": false,
-    "n_signals": 0,
-    "signals": [],
-    "closed_today": 0,
-    "spy_ret_today": null,
-    "risk_free_annual": 5.0,
-    "dq_issues": 1
-  },
-  {
     "generated_at": "2026-06-13T08:39:37.981765Z",
     "date": "2026-06-12",
     "zscore": -0.565,
@@ -3151,6 +3139,18 @@
     "generated_at": "2026-10-16T23:11:18.181730Z",
     "date": "2026-10-15",
     "zscore": -1.083,
+    "system_active": false,
+    "n_signals": 0,
+    "signals": [],
+    "closed_today": 0,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
+  },
+  {
+    "generated_at": "2026-10-20T00:03:31.734974Z",
+    "date": "2026-10-19",
+    "zscore": null,
     "system_active": false,
     "n_signals": 0,
     "signals": [],
