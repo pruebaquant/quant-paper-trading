@@ -205,5 +205,50 @@
     "slippage_pct": 1.0177,
     "slippage_usd": 56.54,
     "pos_usd": 5555.56
+  },
+  {
+    "date": "2026-11-03",
+    "ticker": "INTC",
+    "close_signal": 59.97,
+    "open_real": 61.335,
+    "slippage_pct": 2.2761,
+    "slippage_usd": 227.61,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-03",
+    "ticker": "MSFT",
+    "close_signal": 507.12,
+    "open_real": 508.46,
+    "slippage_pct": 0.2642,
+    "slippage_usd": 26.42,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-03",
+    "ticker": "EWZ",
+    "close_signal": 32.16,
+    "open_real": 31.62,
+    "slippage_pct": -1.6791,
+    "slippage_usd": -167.91,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-03",
+    "ticker": "LLY",
+    "close_signal": 1410.99,
+    "open_real": 1399.63,
+    "slippage_pct": -0.8051,
+    "slippage_usd": -57.51,
+    "pos_usd": 7142.86
+  },
+  {
+    "date": "2026-11-03",
+    "ticker": "ORCL",
+    "close_signal": 119.22,
+    "open_real": 122.0,
+    "slippage_pct": 2.3318,
+    "slippage_usd": 129.55,
+    "pos_usd": 5555.56
   }
 ]

@@ -2578,7 +2578,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-03T02:44:18.570407Z"
-    }
+    },
+    "open_price": 61.335,
+    "slippage_pct": 2.2761,
+    "slippage_usd": 227.61,
+    "entry_price_real": 61.335
   },
   {
     "ticker": "MSFT",
@@ -2622,7 +2626,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-03T02:44:18.570407Z"
-    }
+    },
+    "open_price": 508.46,
+    "slippage_pct": 0.2642,
+    "slippage_usd": 26.42,
+    "entry_price_real": 508.46
   },
   {
     "ticker": "EWZ",
@@ -2666,7 +2674,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-03T02:44:18.570407Z"
-    }
+    },
+    "open_price": 31.62,
+    "slippage_pct": -1.6791,
+    "slippage_usd": -167.91,
+    "entry_price_real": 31.62
   },
   {
     "ticker": "LLY",
@@ -2710,7 +2722,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-03T02:44:18.570407Z"
-    }
+    },
+    "open_price": 1399.63,
+    "slippage_pct": -0.8051,
+    "slippage_usd": -57.51,
+    "entry_price_real": 1399.63
   },
   {
     "ticker": "ORCL",
@@ -2754,6 +2770,10 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-03T02:44:18.570407Z"
-    }
+    },
+    "open_price": 122.0,
+    "slippage_pct": 2.3318,
+    "slippage_usd": 129.55,
+    "entry_price_real": 122.0
   }
 ]
