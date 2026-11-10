@@ -250,5 +250,41 @@
     "slippage_pct": 2.3318,
     "slippage_usd": 129.55,
     "pos_usd": 5555.56
+  },
+  {
+    "date": "2026-11-10",
+    "ticker": "AMD",
+    "close_signal": 508.58,
+    "open_real": 503.0,
+    "slippage_pct": -1.0972,
+    "slippage_usd": -109.72,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-10",
+    "ticker": "IJH",
+    "close_signal": 74.39,
+    "open_real": 73.995,
+    "slippage_pct": -0.531,
+    "slippage_usd": -53.1,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-10",
+    "ticker": "NVDA",
+    "close_signal": 178.67,
+    "open_real": 173.98,
+    "slippage_pct": -2.625,
+    "slippage_usd": -262.5,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-10",
+    "ticker": "PFE",
+    "close_signal": 29.23,
+    "open_real": 29.15,
+    "slippage_pct": -0.2737,
+    "slippage_usd": -19.55,
+    "pos_usd": 7142.86
   }
 ]

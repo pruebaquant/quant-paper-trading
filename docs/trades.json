@@ -2823,7 +2823,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-10T03:05:20.414917Z"
-    }
+    },
+    "open_price": 503.0,
+    "slippage_pct": -1.0972,
+    "slippage_usd": -109.72,
+    "entry_price_real": 503.0
   },
   {
     "ticker": "IJH",
@@ -2867,7 +2871,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-10T03:05:20.414917Z"
-    }
+    },
+    "open_price": 73.995,
+    "slippage_pct": -0.531,
+    "slippage_usd": -53.1,
+    "entry_price_real": 73.995
   },
   {
     "ticker": "NVDA",
@@ -2911,7 +2919,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-10T03:05:20.414917Z"
-    }
+    },
+    "open_price": 173.98,
+    "slippage_pct": -2.625,
+    "slippage_usd": -262.5,
+    "entry_price_real": 173.98
   },
   {
     "ticker": "PFE",
@@ -2955,6 +2967,10 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-10T03:05:20.414917Z"
-    }
+    },
+    "open_price": 29.15,
+    "slippage_pct": -0.2737,
+    "slippage_usd": -19.55,
+    "entry_price_real": 29.15
   }
 ]
