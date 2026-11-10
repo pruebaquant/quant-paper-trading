@@ -1,17 +1,5 @@
 [
   {
-    "generated_at": "2026-07-03T21:59:48.022300Z",
-    "date": "2026-07-02",
-    "zscore": 0.688,
-    "system_active": true,
-    "n_signals": 0,
-    "signals": [],
-    "closed_today": 0,
-    "spy_ret_today": null,
-    "risk_free_annual": 5.0,
-    "dq_issues": 1
-  },
-  {
     "generated_at": "2026-07-06T22:08:54.997202Z",
     "date": "2026-07-02",
     "zscore": 0.689,
@@ -2934,6 +2922,195 @@
     "n_signals": 0,
     "signals": [],
     "closed_today": 0,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 0
+  },
+  {
+    "generated_at": "2026-11-10T03:05:20.414917Z",
+    "date": "2026-11-09",
+    "zscore": 0.97,
+    "system_active": true,
+    "n_signals": 4,
+    "signals": [
+      {
+        "ticker": "AMD",
+        "entry_date": "2026-11-09",
+        "entry_real": "2026-11-10",
+        "exit_expected": "2026-11-17",
+        "p_buy": 0.6744,
+        "pbuy": 0.6744,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 508.58,
+        "zscore": 0.97,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1794279927795,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.5374,
+            "mom_12_1_cs": -0.3805,
+            "ret_1m": -0.1637,
+            "vol_5d": 0.048,
+            "ivol_12m": 0.0312
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 50000.0
+          },
+          "dq_issues": 0,
+          "generated_at": "2026-11-10T03:05:20.414917Z"
+        }
+      },
+      {
+        "ticker": "IJH",
+        "entry_date": "2026-11-09",
+        "entry_real": "2026-11-10",
+        "exit_expected": "2026-11-17",
+        "p_buy": 0.6624,
+        "pbuy": 0.6624,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity_ETF",
+        "entry_price": 74.39,
+        "zscore": 0.97,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1794279927797,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.5374,
+            "mom_12_1_cs": 0.208,
+            "ret_1m": 0.0131,
+            "vol_5d": 0.0134,
+            "ivol_12m": 0.0087
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 16666.67
+          },
+          "dq_issues": 0,
+          "generated_at": "2026-11-10T03:05:20.414917Z"
+        }
+      },
+      {
+        "ticker": "NVDA",
+        "entry_date": "2026-11-09",
+        "entry_real": "2026-11-10",
+        "exit_expected": "2026-11-17",
+        "p_buy": 0.6782,
+        "pbuy": 0.6782,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 178.67,
+        "zscore": 0.97,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1794279927799,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.4339,
+            "mom_12_1_cs": -0.1724,
+            "ret_1m": -0.2207,
+            "vol_5d": 0.0269,
+            "ivol_12m": 0.0188
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 10000.0
+          },
+          "dq_issues": 0,
+          "generated_at": "2026-11-10T03:05:20.414917Z"
+        }
+      },
+      {
+        "ticker": "PFE",
+        "entry_date": "2026-11-09",
+        "entry_real": "2026-11-10",
+        "exit_expected": "2026-11-17",
+        "p_buy": 0.7081,
+        "pbuy": 0.7081,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 29.23,
+        "zscore": 0.97,
+        "pos_usd": 7142.86,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1794279927801,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.5869,
+            "mom_12_1_cs": -0.0137,
+            "ret_1m": 0.0487,
+            "vol_5d": 0.0214,
+            "ivol_12m": 0.0135
+          },
+          "vol_info": {
+            "pos_usd": 7142.86,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 7142.86
+          },
+          "dq_issues": 0,
+          "generated_at": "2026-11-10T03:05:20.414917Z"
+        }
+      }
+    ],
+    "closed_today": 5,
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 0
