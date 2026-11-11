@@ -3015,6 +3015,10 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-11T00:57:42.117214Z"
-    }
+    },
+    "open_price": 124.28,
+    "slippage_pct": 5.3399,
+    "slippage_usd": 533.99,
+    "entry_price_real": 124.28
   }
 ]

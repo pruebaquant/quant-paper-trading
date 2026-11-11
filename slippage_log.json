@@ -286,5 +286,14 @@
     "slippage_pct": -0.2737,
     "slippage_usd": -19.55,
     "pos_usd": 7142.86
+  },
+  {
+    "date": "2026-11-11",
+    "ticker": "ORCL",
+    "close_signal": 117.98,
+    "open_real": 124.28,
+    "slippage_pct": 5.3399,
+    "slippage_usd": 533.99,
+    "pos_usd": 10000.0
   }
 ]
