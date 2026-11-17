@@ -3067,7 +3067,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-17T03:19:41.288819Z"
-    }
+    },
+    "open_price": 55.155,
+    "slippage_pct": -0.5679,
+    "slippage_usd": -56.79,
+    "entry_price_real": 55.155
   },
   {
     "ticker": "NVDA",
@@ -3111,7 +3115,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-17T03:19:41.288819Z"
-    }
+    },
+    "open_price": 156.91,
+    "slippage_pct": 0.4931,
+    "slippage_usd": 49.31,
+    "entry_price_real": 156.91
   },
   {
     "ticker": "MSFT",
@@ -3155,7 +3163,11 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-17T03:19:41.288819Z"
-    }
+    },
+    "open_price": 514.01,
+    "slippage_pct": -0.7684,
+    "slippage_usd": -64.03,
+    "entry_price_real": 514.01
   },
   {
     "ticker": "CPB",
@@ -3199,6 +3211,10 @@
       },
       "dq_issues": 0,
       "generated_at": "2026-11-17T03:19:41.288819Z"
-    }
+    },
+    "open_price": 23.1,
+    "slippage_pct": -1.4925,
+    "slippage_usd": -93.28,
+    "entry_price_real": 23.1
   }
 ]

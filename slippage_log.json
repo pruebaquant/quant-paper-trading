@@ -295,5 +295,41 @@
     "slippage_pct": 5.3399,
     "slippage_usd": 533.99,
     "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-17",
+    "ticker": "INTC",
+    "close_signal": 55.47,
+    "open_real": 55.155,
+    "slippage_pct": -0.5679,
+    "slippage_usd": -56.79,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-17",
+    "ticker": "NVDA",
+    "close_signal": 156.14,
+    "open_real": 156.91,
+    "slippage_pct": 0.4931,
+    "slippage_usd": 49.31,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-17",
+    "ticker": "MSFT",
+    "close_signal": 517.99,
+    "open_real": 514.01,
+    "slippage_pct": -0.7684,
+    "slippage_usd": -64.03,
+    "pos_usd": 8333.33
+  },
+  {
+    "date": "2026-11-17",
+    "ticker": "CPB",
+    "close_signal": 23.45,
+    "open_real": 23.1,
+    "slippage_pct": -1.4925,
+    "slippage_usd": -93.28,
+    "pos_usd": 6250.0
   }
 ]
