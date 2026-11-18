@@ -1,17 +1,5 @@
 [
   {
-    "generated_at": "2026-07-13T21:49:03.945938Z",
-    "date": "2026-07-10",
-    "zscore": -0.449,
-    "system_active": false,
-    "n_signals": 0,
-    "signals": [],
-    "closed_today": 5,
-    "spy_ret_today": null,
-    "risk_free_annual": 5.0,
-    "dq_issues": 1
-  },
-  {
     "generated_at": "2026-07-14T21:51:28.297148Z",
     "date": "2026-07-13",
     "zscore": -0.375,
@@ -3112,6 +3100,63 @@
       }
     ],
     "closed_today": 4,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 0
+  },
+  {
+    "generated_at": "2026-11-18T02:41:01.748660Z",
+    "date": "2026-11-17",
+    "zscore": 0.557,
+    "system_active": true,
+    "n_signals": 1,
+    "signals": [
+      {
+        "ticker": "BMY",
+        "entry_date": "2026-11-17",
+        "entry_real": "2026-11-18",
+        "exit_expected": "2026-11-25",
+        "p_buy": 0.7136,
+        "pbuy": 0.7136,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 61.35,
+        "zscore": 0.557,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1794969667575,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.0834,
+            "mom_12_1_cs": 0.3423,
+            "ret_1m": 0.0428,
+            "vol_5d": 0.0161,
+            "ivol_12m": 0.0149
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 10000.0
+          },
+          "dq_issues": 0,
+          "generated_at": "2026-11-18T02:41:01.748660Z"
+        }
+      }
+    ],
+    "closed_today": 1,
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 0
