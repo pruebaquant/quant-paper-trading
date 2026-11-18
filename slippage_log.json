@@ -331,5 +331,14 @@
     "slippage_pct": -1.4925,
     "slippage_usd": -93.28,
     "pos_usd": 6250.0
+  },
+  {
+    "date": "2026-11-18",
+    "ticker": "BMY",
+    "close_signal": 61.35,
+    "open_real": 60.78,
+    "slippage_pct": -0.9291,
+    "slippage_usd": -92.91,
+    "pos_usd": 10000.0
   }
 ]
