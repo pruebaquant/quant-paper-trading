@@ -1,238 +1,5 @@
 [
   {
-    "generated_at": "2026-07-17T21:43:32.814853Z",
-    "date": "2026-07-16",
-    "zscore": 0.103,
-    "system_active": true,
-    "n_signals": 5,
-    "signals": [
-      {
-        "ticker": "CPB",
-        "entry_date": "2026-07-16",
-        "entry_real": "2026-07-17",
-        "exit_expected": "2026-07-24",
-        "p_buy": 0.6963,
-        "pbuy": 0.6963,
-        "regime": "high_vol",
-        "asset_type": "USA_Equity",
-        "entry_price": 22.65,
-        "zscore": 0.103,
-        "pos_usd": 10000.0,
-        "vol_realized": null,
-        "vol_scalar": 1.0,
-        "vol_method": "equal_weight",
-        "vol_annual": null,
-        "status": "open",
-        "exit_date": null,
-        "exit_price": null,
-        "ret": null,
-        "ret_net": null,
-        "pnl_usd": null,
-        "tc_usd": null,
-        "registered_by": "auto",
-        "id": 1784324619207,
-        "audit": {
-          "features": {
-            "vol_ratio": 1.1853,
-            "mom_12_1_cs": -0.0878,
-            "ret_1m": 0.0324,
-            "vol_5d": 0.0213,
-            "ivol_12m": 0.018
-          },
-          "vol_info": {
-            "pos_usd": 10000.0,
-            "vol_realized": null,
-            "vol_scalar": 1.0,
-            "vol_method": "equal_weight",
-            "base_usd": 50000.0
-          },
-          "dq_issues": 1,
-          "generated_at": "2026-07-17T21:43:32.814853Z"
-        }
-      },
-      {
-        "ticker": "GILD",
-        "entry_date": "2026-07-16",
-        "entry_real": "2026-07-17",
-        "exit_expected": "2026-07-24",
-        "p_buy": 0.6793,
-        "pbuy": 0.6793,
-        "regime": "high_vol",
-        "asset_type": "USA_Equity",
-        "entry_price": 136.3,
-        "zscore": 0.103,
-        "pos_usd": 10000.0,
-        "vol_realized": null,
-        "vol_scalar": 1.0,
-        "vol_method": "equal_weight",
-        "vol_annual": null,
-        "status": "open",
-        "exit_date": null,
-        "exit_price": null,
-        "ret": null,
-        "ret_net": null,
-        "pnl_usd": null,
-        "tc_usd": null,
-        "registered_by": "auto",
-        "id": 1784324619209,
-        "audit": {
-          "features": {
-            "vol_ratio": 1.1241,
-            "mom_12_1_cs": 0.1579,
-            "ret_1m": 0.0965,
-            "vol_5d": 0.0177,
-            "ivol_12m": 0.0158
-          },
-          "vol_info": {
-            "pos_usd": 10000.0,
-            "vol_realized": null,
-            "vol_scalar": 1.0,
-            "vol_method": "equal_weight",
-            "base_usd": 16666.67
-          },
-          "dq_issues": 1,
-          "generated_at": "2026-07-17T21:43:32.814853Z"
-        }
-      },
-      {
-        "ticker": "ADBE",
-        "entry_date": "2026-07-16",
-        "entry_real": "2026-07-17",
-        "exit_expected": "2026-07-24",
-        "p_buy": 0.6766,
-        "pbuy": 0.6766,
-        "regime": "high_vol",
-        "asset_type": "USA_Equity",
-        "entry_price": 235.31,
-        "zscore": 0.103,
-        "pos_usd": 10000.0,
-        "vol_realized": null,
-        "vol_scalar": 1.0,
-        "vol_method": "equal_weight",
-        "vol_annual": null,
-        "status": "open",
-        "exit_date": null,
-        "exit_price": null,
-        "ret": null,
-        "ret_net": null,
-        "pnl_usd": null,
-        "tc_usd": null,
-        "registered_by": "auto",
-        "id": 1784324619211,
-        "audit": {
-          "features": {
-            "vol_ratio": 1.288,
-            "mom_12_1_cs": 0.0146,
-            "ret_1m": 0.1403,
-            "vol_5d": 0.025,
-            "ivol_12m": 0.0194
-          },
-          "vol_info": {
-            "pos_usd": 10000.0,
-            "vol_realized": null,
-            "vol_scalar": 1.0,
-            "vol_method": "equal_weight",
-            "base_usd": 10000.0
-          },
-          "dq_issues": 1,
-          "generated_at": "2026-07-17T21:43:32.814853Z"
-        }
-      },
-      {
-        "ticker": "INTC",
-        "entry_date": "2026-07-16",
-        "entry_real": "2026-07-17",
-        "exit_expected": "2026-07-24",
-        "p_buy": 0.6723,
-        "pbuy": 0.6723,
-        "regime": "high_vol",
-        "asset_type": "USA_Equity",
-        "entry_price": 96.98,
-        "zscore": 0.103,
-        "pos_usd": 7142.86,
-        "vol_realized": null,
-        "vol_scalar": 1.0,
-        "vol_method": "equal_weight",
-        "vol_annual": null,
-        "status": "open",
-        "exit_date": null,
-        "exit_price": null,
-        "ret": null,
-        "ret_net": null,
-        "pnl_usd": null,
-        "tc_usd": null,
-        "registered_by": "auto",
-        "id": 1784324619213,
-        "audit": {
-          "features": {
-            "vol_ratio": 1.11,
-            "mom_12_1_cs": -0.2708,
-            "ret_1m": -0.2415,
-            "vol_5d": 0.0387,
-            "ivol_12m": 0.0349
-          },
-          "vol_info": {
-            "pos_usd": 7142.86,
-            "vol_realized": null,
-            "vol_scalar": 1.0,
-            "vol_method": "equal_weight",
-            "base_usd": 7142.86
-          },
-          "dq_issues": 1,
-          "generated_at": "2026-07-17T21:43:32.814853Z"
-        }
-      },
-      {
-        "ticker": "GIS",
-        "entry_date": "2026-07-16",
-        "entry_real": "2026-07-17",
-        "exit_expected": "2026-07-24",
-        "p_buy": 0.6696,
-        "pbuy": 0.6696,
-        "regime": "high_vol",
-        "asset_type": "USA_Equity",
-        "entry_price": 38.7,
-        "zscore": 0.103,
-        "pos_usd": 5555.56,
-        "vol_realized": null,
-        "vol_scalar": 1.0,
-        "vol_method": "equal_weight",
-        "vol_annual": null,
-        "status": "open",
-        "exit_date": null,
-        "exit_price": null,
-        "ret": null,
-        "ret_net": null,
-        "pnl_usd": null,
-        "tc_usd": null,
-        "registered_by": "auto",
-        "id": 1784324619215,
-        "audit": {
-          "features": {
-            "vol_ratio": 1.4453,
-            "mom_12_1_cs": 0.0495,
-            "ret_1m": 0.1488,
-            "vol_5d": 0.0215,
-            "ivol_12m": 0.0149
-          },
-          "vol_info": {
-            "pos_usd": 5555.56,
-            "vol_realized": null,
-            "vol_scalar": 1.0,
-            "vol_method": "equal_weight",
-            "base_usd": 5555.56
-          },
-          "dq_issues": 1,
-          "generated_at": "2026-07-17T21:43:32.814853Z"
-        }
-      }
-    ],
-    "closed_today": 0,
-    "spy_ret_today": null,
-    "risk_free_annual": 5.0,
-    "dq_issues": 1
-  },
-  {
     "generated_at": "2026-07-20T21:56:00.987808Z",
     "date": "2026-07-17",
     "zscore": -0.135,
@@ -3160,5 +2927,194 @@
     "spy_ret_today": null,
     "risk_free_annual": 5.0,
     "dq_issues": 0
+  },
+  {
+    "generated_at": "2026-11-24T05:05:16.851927Z",
+    "date": "2026-11-23",
+    "zscore": 0.126,
+    "system_active": true,
+    "n_signals": 4,
+    "signals": [
+      {
+        "ticker": "AMZN",
+        "entry_date": "2026-11-23",
+        "entry_real": "2026-11-24",
+        "exit_expected": "2026-12-02",
+        "p_buy": 0.7374,
+        "pbuy": 0.7374,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 255.39,
+        "zscore": 0.126,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1795496722743,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.6024,
+            "mom_12_1_cs": 0.2213,
+            "ret_1m": 0.0298,
+            "vol_5d": 0.0266,
+            "ivol_12m": 0.0166
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 25000.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-11-24T05:05:16.851927Z"
+        }
+      },
+      {
+        "ticker": "HD",
+        "entry_date": "2026-11-23",
+        "entry_real": "2026-11-24",
+        "exit_expected": "2026-12-02",
+        "p_buy": 0.7364,
+        "pbuy": 0.7364,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 346.06,
+        "zscore": 0.126,
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1795496722746,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.3388,
+            "mom_12_1_cs": -0.1076,
+            "ret_1m": 0.082,
+            "vol_5d": 0.0193,
+            "ivol_12m": 0.0144
+          },
+          "vol_info": {
+            "pos_usd": 10000.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 12500.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-11-24T05:05:16.851927Z"
+        }
+      },
+      {
+        "ticker": "CPB",
+        "entry_date": "2026-11-23",
+        "entry_real": "2026-11-24",
+        "exit_expected": "2026-12-02",
+        "p_buy": 0.6959,
+        "pbuy": 0.6959,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity",
+        "entry_price": 22.98,
+        "zscore": 0.126,
+        "pos_usd": 8333.33,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1795496722748,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.3184,
+            "mom_12_1_cs": -0.2874,
+            "ret_1m": 0.1085,
+            "vol_5d": 0.0258,
+            "ivol_12m": 0.0196
+          },
+          "vol_info": {
+            "pos_usd": 8333.33,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 8333.33
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-11-24T05:05:16.851927Z"
+        }
+      },
+      {
+        "ticker": "IJH",
+        "entry_date": "2026-11-23",
+        "entry_real": "2026-11-24",
+        "exit_expected": "2026-12-02",
+        "p_buy": 0.6876,
+        "pbuy": 0.6876,
+        "regime": "high_vol",
+        "asset_type": "USA_Equity_ETF",
+        "entry_price": 70.96,
+        "zscore": 0.126,
+        "pos_usd": 6250.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "vol_annual": null,
+        "status": "open",
+        "exit_date": null,
+        "exit_price": null,
+        "ret": null,
+        "ret_net": null,
+        "pnl_usd": null,
+        "tc_usd": null,
+        "registered_by": "auto",
+        "id": 1795496722750,
+        "audit": {
+          "features": {
+            "vol_ratio": 1.472,
+            "mom_12_1_cs": -0.68,
+            "ret_1m": -0.0195,
+            "vol_5d": 0.0129,
+            "ivol_12m": 0.0088
+          },
+          "vol_info": {
+            "pos_usd": 6250.0,
+            "vol_realized": null,
+            "vol_scalar": 1.0,
+            "vol_method": "equal_weight",
+            "base_usd": 6250.0
+          },
+          "dq_issues": 1,
+          "generated_at": "2026-11-24T05:05:16.851927Z"
+        }
+      }
+    ],
+    "closed_today": 4,
+    "spy_ret_today": null,
+    "risk_free_annual": 5.0,
+    "dq_issues": 1
   }
 ]
