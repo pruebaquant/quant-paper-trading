@@ -3312,7 +3312,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-24T05:05:16.851927Z"
-    }
+    },
+    "open_price": 252.54,
+    "slippage_pct": -1.1159,
+    "slippage_usd": -111.59,
+    "entry_price_real": 252.54
   },
   {
     "ticker": "HD",
@@ -3356,7 +3360,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-24T05:05:16.851927Z"
-    }
+    },
+    "open_price": 346.0575,
+    "slippage_pct": -0.0007,
+    "slippage_usd": -0.07,
+    "entry_price_real": 346.0575
   },
   {
     "ticker": "CPB",
@@ -3400,7 +3408,11 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-24T05:05:16.851927Z"
-    }
+    },
+    "open_price": 23.08,
+    "slippage_pct": 0.4352,
+    "slippage_usd": 36.26,
+    "entry_price_real": 23.08
   },
   {
     "ticker": "IJH",
@@ -3444,6 +3456,10 @@
       },
       "dq_issues": 1,
       "generated_at": "2026-11-24T05:05:16.851927Z"
-    }
+    },
+    "open_price": 70.475,
+    "slippage_pct": -0.6835,
+    "slippage_usd": -42.72,
+    "entry_price_real": 70.475
   }
 ]

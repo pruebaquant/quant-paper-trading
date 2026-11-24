@@ -340,5 +340,41 @@
     "slippage_pct": -0.9291,
     "slippage_usd": -92.91,
     "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-24",
+    "ticker": "AMZN",
+    "close_signal": 255.39,
+    "open_real": 252.54,
+    "slippage_pct": -1.1159,
+    "slippage_usd": -111.59,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-24",
+    "ticker": "HD",
+    "close_signal": 346.06,
+    "open_real": 346.0575,
+    "slippage_pct": -0.0007,
+    "slippage_usd": -0.07,
+    "pos_usd": 10000.0
+  },
+  {
+    "date": "2026-11-24",
+    "ticker": "CPB",
+    "close_signal": 22.98,
+    "open_real": 23.08,
+    "slippage_pct": 0.4352,
+    "slippage_usd": 36.26,
+    "pos_usd": 8333.33
+  },
+  {
+    "date": "2026-11-24",
+    "ticker": "IJH",
+    "close_signal": 70.96,
+    "open_real": 70.475,
+    "slippage_pct": -0.6835,
+    "slippage_usd": -42.72,
+    "pos_usd": 6250.0
   }
 ]
