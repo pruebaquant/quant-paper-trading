@@ -3238,11 +3238,11 @@
     "vol_scalar": 1.0,
     "vol_method": "equal_weight",
     "vol_annual": null,
-    "status": "open",
-    "exit_date": null,
-    "exit_price": null,
-    "ret": null,
-    "ret_net": null,
+    "status": "win",
+    "exit_date": "2026-11-25",
+    "exit_price": 62.02,
+    "ret": 1.092,
+    "ret_net": 1.042,
     "pnl_usd": null,
     "tc_usd": null,
     "registered_by": "auto",
@@ -3268,7 +3268,8 @@
     "open_price": 60.78,
     "slippage_pct": -0.9291,
     "slippage_usd": -92.91,
-    "entry_price_real": 60.78
+    "entry_price_real": 60.78,
+    "closed_by": "auto"
   },
   {
     "ticker": "AMZN",
@@ -3461,5 +3462,49 @@
     "slippage_pct": -0.6835,
     "slippage_usd": -42.72,
     "entry_price_real": 70.475
+  },
+  {
+    "ticker": "EWZ",
+    "entry_date": "2026-11-24",
+    "entry_real": "2026-11-25",
+    "exit_expected": "2026-12-03",
+    "p_buy": 0.7237,
+    "pbuy": 0.7237,
+    "regime": "high_vol",
+    "asset_type": "EM_ETF",
+    "entry_price": 29.3,
+    "zscore": 0.415,
+    "pos_usd": 10000.0,
+    "vol_realized": null,
+    "vol_scalar": 1.0,
+    "vol_method": "equal_weight",
+    "vol_annual": null,
+    "status": "open",
+    "exit_date": null,
+    "exit_price": null,
+    "ret": null,
+    "ret_net": null,
+    "pnl_usd": null,
+    "tc_usd": null,
+    "registered_by": "auto",
+    "id": 1795578817793,
+    "audit": {
+      "features": {
+        "vol_ratio": 1.4484,
+        "mom_12_1_cs": -0.1156,
+        "ret_1m": -0.142,
+        "vol_5d": 0.018,
+        "ivol_12m": 0.0124
+      },
+      "vol_info": {
+        "pos_usd": 10000.0,
+        "vol_realized": null,
+        "vol_scalar": 1.0,
+        "vol_method": "equal_weight",
+        "base_usd": 10000.0
+      },
+      "dq_issues": 1,
+      "generated_at": "2026-11-25T03:53:31.191644Z"
+    }
   }
 ]
