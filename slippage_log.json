@@ -376,5 +376,14 @@
     "slippage_pct": -0.6835,
     "slippage_usd": -42.72,
     "pos_usd": 6250.0
+  },
+  {
+    "date": "2026-11-25",
+    "ticker": "EWZ",
+    "close_signal": 29.3,
+    "open_real": 29.29,
+    "slippage_pct": -0.0341,
+    "slippage_usd": -3.41,
+    "pos_usd": 10000.0
   }
 ]
