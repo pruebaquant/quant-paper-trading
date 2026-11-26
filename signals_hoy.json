@@ -1,56 +1,11 @@
 {
-  "generated_at": "2026-11-25T03:53:31.191644Z",
-  "date": "2026-11-24",
-  "zscore": 0.415,
+  "generated_at": "2026-11-26T03:19:20.195233Z",
+  "date": "2026-11-25",
+  "zscore": 0.675,
   "system_active": true,
-  "n_signals": 1,
-  "signals": [
-    {
-      "ticker": "EWZ",
-      "entry_date": "2026-11-24",
-      "entry_real": "2026-11-25",
-      "exit_expected": "2026-12-03",
-      "p_buy": 0.7237,
-      "pbuy": 0.7237,
-      "regime": "high_vol",
-      "asset_type": "EM_ETF",
-      "entry_price": 29.3,
-      "zscore": 0.415,
-      "pos_usd": 10000.0,
-      "vol_realized": null,
-      "vol_scalar": 1.0,
-      "vol_method": "equal_weight",
-      "vol_annual": null,
-      "status": "open",
-      "exit_date": null,
-      "exit_price": null,
-      "ret": null,
-      "ret_net": null,
-      "pnl_usd": null,
-      "tc_usd": null,
-      "registered_by": "auto",
-      "id": 1795578817793,
-      "audit": {
-        "features": {
-          "vol_ratio": 1.4484,
-          "mom_12_1_cs": -0.1156,
-          "ret_1m": -0.142,
-          "vol_5d": 0.018,
-          "ivol_12m": 0.0124
-        },
-        "vol_info": {
-          "pos_usd": 10000.0,
-          "vol_realized": null,
-          "vol_scalar": 1.0,
-          "vol_method": "equal_weight",
-          "base_usd": 10000.0
-        },
-        "dq_issues": 1,
-        "generated_at": "2026-11-25T03:53:31.191644Z"
-      }
-    }
-  ],
-  "closed_today": 1,
+  "n_signals": 0,
+  "signals": [],
+  "closed_today": 0,
   "spy_ret_today": null,
   "risk_free_annual": 5.0,
   "dq_issues": 1
